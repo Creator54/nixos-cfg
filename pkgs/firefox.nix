@@ -18,7 +18,7 @@ in
   programs = {
     firefox = {
       profiles.default = {
-        userChrome = builtins.readFile firefox-configs/chrome/userChrome.css;
+        #userChrome = builtins.readFile firefox-configs/chrome/userChrome.css;
         settings = {
           "browser.startup.homepage" = "https://shodan.io";
           "browser.search.region" = "IN";                      
