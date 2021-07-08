@@ -20,7 +20,7 @@ in
       profiles.default = {
         userChrome = builtins.readFile firefox-configs/chrome/userChrome.css;
         settings = {
-          "browser.startup.homepage" = "https:creator54.github.io";
+          "browser.startup.homepage" = "https://shodan.io";
           "browser.search.region" = "IN";                      
           "browser.search.isUS" = false;                       
           "distribution.searchplugins.defaultLocale" = "en-IN";
