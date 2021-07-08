@@ -1,22 +1,13 @@
 { config, pkgs, lib, ... }:
 
-let
-  unstableTarball = fetchTarball https://releases.nixos.org/nixpkgs/nixpkgs-21.05pre286178.ff13163e3fd/nixexprs.tar.xz;
-in
 {
-  imports = [ 
+  imports = [
+    ./git.nix
     ./nvim.nix
     ./fish.nix
+    ./firefox.nix
 #    ./kitty.nix
   ];
-
-  nixpkgs.config = {
-    packageOverrides = pkgs: {
-      unstable = import unstableTarball {
-        config = config.nixpkgs.config;
-      };
-    };
-  };
 
   home.packages = with pkgs; [
     wget htop feh nox git github-cli nnn
@@ -33,32 +24,10 @@ in
     cascadia-code
     source-code-pro
     twemoji-color-font
-    unstable.firefox
     xorg.xf86videointel
     xorg.xf86inputmouse
     xorg.xf86inputkeyboard
     xorg.xf86inputlibinput
     xorg.xf86inputsynaptics
   ];
-  programs = {
-    #home-manager.enable = true;
-    firefox = {
-      profiles.default = {
-        userChrome = builtins.readFile firefox-configs/chrome/userChrome.css;
-        settings = {
-          "browser.startup.homepage" = "https:creator54.github.io";
-          "browser.search.region" = "IN";                      
-          "browser.search.isUS" = false;                       
-          "distribution.searchplugins.defaultLocale" = "en-IN";
-          "general.useragent.locale" = "en-IN";                
-          "browser.bookmarks.showMobileBookmarks" = true;      
-        };
-      };
-    };
-    git = {
-      enable = true;
-      userName = "creator54";
-      userEmail = "hi.creator54@gmail.com";
-    };
-  };
 }
