@@ -14,8 +14,8 @@
       gl = "git log";
       gck = "git checkout";
       gx = "git reset --hard";
-      gu = "git pull origin $(git branch)";
-      gp = "git push origin $(git branch)";
+      gu = "git pull origin $(git branch | sed 's/^* //')";
+      gp = "git push origin $(git branch | sed 's/^* //')";
     };
   };
 }

@@ -3,6 +3,7 @@
 {
   imports = [
     ./git.nix
+    ./bat.nix
     ./nvim.nix
     ./fish.nix
     ./firefox.nix
@@ -11,13 +12,12 @@
 
   home.packages = with pkgs; [
     wget htop feh nox git github-cli nnn
-    obs-studio rofi bat aria2 nodejs meld
+    obs-studio rofi feh aria2 nodejs meld
     gnumake fzf mpv vlc tdesktop ncftp
     capitaine-cursors kitty fortune 
     bibata-extra-cursors w3m
     papirus-maia-icon-theme
     colorpicker
-    feh
     adapta-gtk-theme #dark theme
     fira-code
     fira-code-symbols
