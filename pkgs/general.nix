@@ -14,7 +14,7 @@
     obs-studio rofi bat aria2 nodejs meld
     gnumake fzf mpv vlc tdesktop ncftp
     capitaine-cursors kitty fortune 
-    bibata-extra-cursors
+    bibata-extra-cursors w3m
     papirus-maia-icon-theme
     colorpicker
     feh
