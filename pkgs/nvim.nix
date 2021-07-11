@@ -5,7 +5,7 @@
     neovim = {
       enable = true;
       vimAlias = true;
-      extraConfig = '' colorscheme molokai '';
+      extraConfig = '' colorscheme alduin '';
       plugins = with pkgs.vimPlugins;
       let
         context-vim = pkgs.vimUtils.buildVimPlugin {

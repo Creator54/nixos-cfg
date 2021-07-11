@@ -5,7 +5,7 @@
     ./git.nix
     ./bat.nix
     ./nvim.nix
-    ./fish.nix
+    #./fish.nix
     ./firefox.nix
 #    ./kitty.nix
   ];
@@ -15,8 +15,8 @@
     obs-studio rofi feh aria2 nodejs meld
     gnumake fzf mpv vlc tdesktop ncftp
     capitaine-cursors kitty fortune 
-    bibata-extra-cursors w3m
-    papirus-maia-icon-theme
+    bibata-extra-cursors w3m gnome.nautilus
+    papirus-maia-icon-theme #qtcreator
     colorpicker
     adapta-gtk-theme #dark theme
     fira-code
