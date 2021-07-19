@@ -6,7 +6,7 @@
     ./bat.nix
     ./nvim.nix
     #./fish.nix
-    ./firefox.nix
+#    ./firefox.nix
 #    ./kitty.nix
   ];
 
@@ -14,12 +14,12 @@
     wget htop feh nox git github-cli nnn
     obs-studio rofi feh aria2 nodejs meld
     gnumake fzf mpv vlc tdesktop ncftp
-    capitaine-cursors kitty fortune 
+    capitaine-cursors kitty fortune file 
     bibata-extra-cursors w3m gnome.nautilus
-    papirus-maia-icon-theme #qtcreator
-    colorpicker
+    papirus-maia-icon-theme qtcreator vscode
+    colorpicker smartmontools glances 
     adapta-gtk-theme #dark theme
-    fira-code
+    fira-code gnome-latex
     fira-code-symbols
     cascadia-code
     source-code-pro
@@ -30,4 +30,6 @@
     xorg.xf86inputlibinput
     xorg.xf86inputsynaptics
   ];
+
+  nixpkgs.config.allowUnfree = true; 
 }
