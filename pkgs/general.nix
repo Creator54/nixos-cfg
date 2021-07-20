@@ -12,7 +12,7 @@
 
   home.packages = with pkgs; [
     wget htop feh nox git github-cli nnn
-    obs-studio rofi feh aria2 nodejs meld
+    rofi feh aria2 nodejs meld libclang
     gnumake fzf mpv vlc tdesktop ncftp
     capitaine-cursors kitty fortune file 
     bibata-extra-cursors w3m gnome.nautilus

@@ -5,13 +5,31 @@
     neovim = {
       enable = true;
       vimAlias = true;
-      extraConfig = '' 
-        colorscheme alduin
-				set ts=2 sw=2
+      extraConfig = ''
+        " 
+        let g:airline_theme='deus'
+        
+        let g:javascript_plugin_jsdoc = 1
+				let g:javascript_plugin_ngdoc = 1
+				let g:javascript_plugin_flow = 1
+				augroup javascript_folding
+				  au!
+    			au FileType javascript setlocal foldmethod=syntax
+				augroup END
+
+        let g:cpp_no_function_highlight = 1
+        let g:cpp_attributes_highlight = 1
+        let g:cpp_member_highlight = 1
+        let g:cpp_simple_highlight = 1
+
+        let g:clang_library_path='r0h2irmx6dk447dpszd9j7zw306rbqnq-clang-8.0.1-lib/lib/libclang.so'
+        set ts=2 sw=2
       '';
       plugins = with pkgs.vimPlugins;
-      let
-        context-vim = pkgs.vimUtils.buildVimPlugin {
+      
+			let
+        
+				context-vim = pkgs.vimUtils.buildVimPlugin {
           name = "context-vim";
           src = pkgs.fetchFromGitHub {
             owner = "wellle";
@@ -20,7 +38,8 @@
             sha256 = "1iy614py9qz4rwk9p4pr1ci0m1lvxil0xiv3ymqzhqrw5l55n346";
           };
 	      };
-        fzf-vim = pkgs.vimUtils.buildVimPlugin {
+        
+				fzf.vim = pkgs.vimUtils.buildVimPlugin {
           name = "fzf.vim";
           src = pkgs.fetchFromGitHub {
             owner = "junegunn";
@@ -29,7 +48,18 @@
             sha256 = "0rn0b48zxf46ak0a2dwbx4aas0fjiywhch0viffzhj5b61lvy218";
           };
         };
-	      coc-nvim = pkgs.vimUtils.buildVimPlugin {
+
+				vim-cpp-modern = pkgs.vimUtils.buildVimPlugin {
+          name = "vim-cpp-modern";
+          src = pkgs.fetchFromGitHub {
+            owner = "bfrg";
+            repo = "vim-cpp-modern";
+            rev = "1a0d31ff541e115895b6357b203a0969835b3212";
+            sha256 = "0vcz2dk8l5qfgsc8vf0m7s3i2gl8s0k8wfmn79c9zxr8w6zjrrvs";
+          };
+        };
+					
+				coc-nvim = pkgs.vimUtils.buildVimPlugin {
           name = "coc.nvim";
           src = pkgs.fetchFromGitHub {
             owner = "neoclide";
@@ -38,68 +68,34 @@
             sha256 = "1hpw03cxb22cmrjgisb8hf7pxqb06c4nk1n4sixrjj132d36pmpp";
           };
         };
-	      #alduin = pkgs.vimUtils.buildVimPlugin {
-        #  name = "alduin";
-        #  src = pkgs.fetchFromGitHub {
-        #    owner = "AlessandroYorba";
-        #    repo = "alduin";
-        #    rev = "ec9107b060d80e4c4148bbf0f3396aba7c60464a";
-        #    sha256 = "012hfj582x89dyrkjijxylcyfr3w3v62p8b5dg8hdjmgzw5i5lyl";
-        #  };
-        #};
-	      #molokai = pkgs.vimUtils.buildVimPlugin {
-        #  name = "molokai";
-        #  src = pkgs.fetchFromGitHub {
-        #    owner = "tomasr";
-        #    repo = "molokai";
-        #    rev = "c67bdfcdb31415aa0ade7f8c003261700a885476";
-        #    sha256 = "1piszjr5kyw43ac1f0jh9z88g824xknshrkchbys9qxlz7pd831s";
-        #  };
-        #};
-	      #dracula-theme = pkgs.vimUtils.buildVimPlugin {
-        #  name = "vim";
-        #  src = pkgs.fetchFromGitHub {
-        #    owner = "dracula";
-        #    repo = "vim";
-        #    rev = "e7154372adc95d637ccd911c2f8601d9ff2eac1f";
-        #    sha256 = "1li5q3151kjh8c6a7cdnmbydxhkjgqsa5nlv49dy6dnqc3b50m7s";
-        #  };
-        #};
-				vim-colorschemes = pkgs.vimUtils.buildVimPlugin {
-					name = "vim-colorschemes";
-					src = pkgs.fetchFromGitHub {
-						owner = "flazz";
-						repo = "vim-colorschemes";
-						rev = "fd8f122cef604330c96a6a6e434682dbdfb878c9";
-						sha256 = "1cg8q7w0vgl73aw1b9zz0zh5vw5d2pm8pm54fhfzva4azg56f416";
-					};
-				};
+
       in
 
       [
-				vim-colorschemes
-        #molokai
-	      #dracula-theme
-	      #alduin
-	      fzf-vim
+	      #fzf.vim
         coc-nvim
 	      coc-python
+				coc-java
+				coc-lua
 	      coc-html
+				coc-css
+        vim-javascript
+        vim-cpp-modern
+        clang_complete
         context-vim
-  	    vim-elixir
-		    vim-autoformat
-        idris-vim
-        sensible
-        vim-airline
-        The_NERD_tree # file system explorer
+		    #vim-autoformat #needs external program that can format code
+        #sensible
+        vim-airline #the bottom bar
+				vim-airline-themes
+        #The_NERD_tree # file system explorer
         fugitive 
-				#vim-gitgutter # shows uncommited lines in git
+        #vim-gitgutter # shows uncommited lines in git
         rust-vim
+				vim-nix
 	      colorizer
 	      vim-latex-live-preview
         vim-abolish
         command-t
-        vim-go
       ];
     };
   };
