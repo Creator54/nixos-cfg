@@ -1,12 +1,29 @@
 { config, pkgs, lib, ... }:
 
 {
+  nixpkgs.overlays = [
+    (import (builtins.fetchTarball {
+      url = https://github.com/nix-community/neovim-nightly-overlay/archive/master.tar.gz;
+    }))
+  ];
+
   programs = {
     neovim = {
       enable = true;
+      package = pkgs.neovim-nightly;
       vimAlias = true;
       extraConfig = ''
-        " 
+        " Start n³ in the current file's directory
+        " Disable default mappings
+        let g:nnn#set_default_mappings = 0
+        nnoremap <leader>n :NnnPicker %:p:h<CR>
+
+        " leaderkey is '\' leaderkey + n opens nnn in vim        
+        " Floating window (neovim latest and vim with patch 8.2.191)
+        let g:nnn#layout = { 'window': { 'width': 0.9, 'height': 0.6, 'highlight': 'Debug' } }
+
+        colorscheme onedark
+        "colorscheme space-vim-dark
         let g:airline_theme='deus'
         
         let g:javascript_plugin_jsdoc = 1
@@ -24,6 +41,23 @@
 
         let g:clang_library_path='r0h2irmx6dk447dpszd9j7zw306rbqnq-clang-8.0.1-lib/lib/libclang.so'
         set ts=2 sw=2
+        "set relativenumber
+        set number
+
+        let g:coc_global_extensions = [
+          \ 'coc-snippets',
+          \ 'coc-pairs',
+          \ 'coc-tsserver',
+          \ 'coc-eslint',
+          \ 'coc-prettier',
+          \ 'coc-json',
+          \ 'coc-python',
+          \ 'coc-java',
+          \ 'coc-html',
+          \ 'coc-css',
+          \ 'coc-spell-checker',
+          \ 'coc-yaml',
+          \ ]
       '';
       plugins = with pkgs.vimPlugins;
       
@@ -39,16 +73,6 @@
           };
 	      };
         
-				fzf.vim = pkgs.vimUtils.buildVimPlugin {
-          name = "fzf.vim";
-          src = pkgs.fetchFromGitHub {
-            owner = "junegunn";
-            repo = "fzf.vim";
-            rev = "e34f6c129d39b90db44df1107c8b7dfacfd18946";
-            sha256 = "0rn0b48zxf46ak0a2dwbx4aas0fjiywhch0viffzhj5b61lvy218";
-          };
-        };
-
 				vim-cpp-modern = pkgs.vimUtils.buildVimPlugin {
           name = "vim-cpp-modern";
           src = pkgs.fetchFromGitHub {
@@ -72,22 +96,22 @@
       in
 
       [
-	      #fzf.vim
         coc-nvim
-	      coc-python
-				coc-java
-				coc-lua
-	      coc-html
-				coc-css
+
+        popup-nvim    #all 3 as per telescope-nvim
+        plenary-nvim
+        telescope-nvim
+
         vim-javascript
         vim-cpp-modern
         clang_complete
         context-vim
-		    #vim-autoformat #needs external program that can format code
+        yats-vim
+        nnn-vim
         #sensible
+        awesome-vim-colorschemes
         vim-airline #the bottom bar
 				vim-airline-themes
-        #The_NERD_tree # file system explorer
         fugitive 
         #vim-gitgutter # shows uncommited lines in git
         rust-vim

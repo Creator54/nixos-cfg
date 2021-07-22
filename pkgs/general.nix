@@ -17,9 +17,9 @@
     capitaine-cursors kitty fortune file 
     bibata-extra-cursors w3m gnome.nautilus
     papirus-maia-icon-theme qtcreator vscode
-    colorpicker smartmontools glances 
-    adapta-gtk-theme #dark theme
-    fira-code gnome-latex
+    colorpicker smartmontools glances jq 
+    youtube-dl adapta-gtk-theme #dark theme
+    fira-code gnome-latex ueberzug
     fira-code-symbols
     cascadia-code
     source-code-pro
