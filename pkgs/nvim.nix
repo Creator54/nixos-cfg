@@ -39,10 +39,11 @@
         let g:cpp_member_highlight = 1
         let g:cpp_simple_highlight = 1
 
-        let g:clang_library_path='r0h2irmx6dk447dpszd9j7zw306rbqnq-clang-8.0.1-lib/lib/libclang.so'
+        let g:clang_library_path='/nix/store/r0h2irmx6dk447dpszd9j7zw306rbqnq-clang-8.0.1-lib/lib/libclang.so'
         set ts=2 sw=2
         "set relativenumber
         set number
+        set undofile
 
         let g:coc_global_extensions = [
           \ 'coc-snippets',
@@ -113,8 +114,8 @@
         vim-airline #the bottom bar
 				vim-airline-themes
         fugitive 
-        #vim-gitgutter # shows uncommited lines in git
         rust-vim
+        vim-signify #a better alternative to vim-git-gutter
 				vim-nix
 	      colorizer
 	      vim-latex-live-preview
