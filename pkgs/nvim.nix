@@ -13,6 +13,9 @@
       package = pkgs.neovim-nightly;
       vimAlias = true;
       extraConfig = ''
+        " set the mapleader to space
+        let mapleader = " "
+
         " Start n³ in the current file's directory
         " Disable default mappings
         let g:nnn#set_default_mappings = 0
