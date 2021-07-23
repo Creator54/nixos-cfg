@@ -19,7 +19,7 @@
     papirus-maia-icon-theme qtcreator vscode
     colorpicker smartmontools glances jq 
     youtube-dl adapta-gtk-theme #dark theme
-    fira-code gnome-latex ueberzug
+    fira-code gnome-latex ueberzug eva
     fira-code-symbols
     cascadia-code
     source-code-pro
