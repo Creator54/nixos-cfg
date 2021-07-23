@@ -58,6 +58,7 @@
           \ 'coc-css',
           \ 'coc-spell-checker',
           \ 'coc-yaml',
+          \ 'coc-clangd',
           \ ]
       '';
       plugins = with pkgs.vimPlugins;
