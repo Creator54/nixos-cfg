@@ -48,6 +48,7 @@
         set number
         set undofile
 
+        "to remove coc-extensions you need to manually remove the lines from ~/.config/coc/extensions/package.json
         let g:coc_global_extensions = [
           \ 'coc-snippets',
           \ 'coc-pairs',
@@ -59,7 +60,6 @@
           \ 'coc-java',
           \ 'coc-html',
           \ 'coc-css',
-          \ 'coc-spell-checker',
           \ 'coc-yaml',
           \ 'coc-clangd',
           \ ]
