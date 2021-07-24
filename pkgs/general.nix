@@ -3,11 +3,7 @@
 {
   imports = [
     ./git.nix
-    ./bat.nix
     ./nvim.nix
-    #./fish.nix
-#    ./firefox.nix
-#    ./kitty.nix
   ];
 
   home.packages = with pkgs; [
