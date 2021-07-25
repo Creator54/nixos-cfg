@@ -16,7 +16,7 @@
     colorpicker smartmontools glances jq 
     youtube-dl adapta-gtk-theme #dark theme
     fira-code gnome-latex ueberzug eva
-    fira-code-symbols
+    fira-code-symbols unzip
     cascadia-code
     source-code-pro
     twemoji-color-font
