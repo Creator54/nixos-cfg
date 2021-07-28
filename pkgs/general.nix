@@ -4,6 +4,7 @@
   imports = [
     ./git.nix
     ./nvim.nix
+    ./bat.nix
   ];
 
   home.packages = with pkgs; [
@@ -16,7 +17,7 @@
     colorpicker smartmontools glances jq 
     youtube-dl adapta-gtk-theme #dark theme
     fira-code gnome-latex ueberzug eva
-    fira-code-symbols unzip
+    fira-code-symbols unzip picom
     cascadia-code
     source-code-pro
     twemoji-color-font
