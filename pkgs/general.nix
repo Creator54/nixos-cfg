@@ -16,11 +16,11 @@
     papirus-maia-icon-theme qtcreator vscode
     colorpicker smartmontools glances jq 
     youtube-dl adapta-gtk-theme #dark theme
-    fira-code ueberzug eva
-    fira-code-symbols unzip picom
-    cascadia-code
-    source-code-pro
-    twemoji-color-font
+    fira-code ueberzug eva tree qbittorrent
+    fira-code-symbols unzip picom cmus conky
+    cascadia-code flameshot inkscape obs-studio
+    source-code-pro speedtest-cli electron
+    twemoji-color-font anydesk lm_sensors
     xorg.xf86videointel
     xorg.xf86inputmouse
     xorg.xf86inputkeyboard

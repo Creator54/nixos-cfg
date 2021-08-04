@@ -119,6 +119,7 @@
 				vim-airline-themes
         fugitive 
         rust-vim
+        supertab #for tab completion
         vim-signify #a better alternative to vim-git-gutter
 				vim-nix
 	      colorizer
