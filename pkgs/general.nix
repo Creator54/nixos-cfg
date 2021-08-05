@@ -21,6 +21,7 @@
     cascadia-code flameshot inkscape obs-studio
     source-code-pro speedtest-cli electron
     twemoji-color-font anydesk lm_sensors
+    betterlockscreen screenkey
     xorg.xf86videointel
     xorg.xf86inputmouse
     xorg.xf86inputkeyboard
