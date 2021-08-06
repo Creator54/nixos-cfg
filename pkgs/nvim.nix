@@ -13,6 +13,12 @@
       package = pkgs.neovim-nightly;
       vimAlias = true;
       extraConfig = ''
+        " vim-fish 
+        syntax enable
+        filetype plugin indent on
+        " Set this to have long lines wrap inside comments.
+        setlocal textwidth=79
+
         "for indentline
         let g:indentLine_char = '▏'
 
@@ -110,6 +116,7 @@
         telescope-nvim
 
         vim-javascript
+        vim-fish
         vim-cpp-modern
         clang_complete
         context-vim
@@ -130,8 +137,6 @@
 
         indentLine
         indent-blankline-nvim
-
-        nvim-treesitter
       ];
     };
   };
