@@ -5,6 +5,7 @@
     ./git.nix
     ./nvim.nix
     ./bat.nix
+    ./mcfly.nix
   ];
 
   home.packages = with pkgs; [
