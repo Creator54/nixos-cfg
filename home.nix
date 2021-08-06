@@ -3,6 +3,8 @@
 {
   imports = [
     ./pkgs/general.nix
+    ./wm/wm-pkgs.nix
+    ./wm/awesome.nix
   ];
 
   # Home Manager needs a bit of information about you and the
