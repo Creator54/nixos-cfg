@@ -33,12 +33,12 @@
         let g:airline_theme='deus'
         
         let g:javascript_plugin_jsdoc = 1
-				let g:javascript_plugin_ngdoc = 1
-				let g:javascript_plugin_flow = 1
-				augroup javascript_folding
-				  au!
-    			au FileType javascript setlocal foldmethod=syntax
-				augroup END
+        let g:javascript_plugin_ngdoc = 1
+        let g:javascript_plugin_flow = 1
+        augroup javascript_folding
+        au!
+          au FileType javascript setlocal foldmethod=syntax
+        augroup END
 
         let g:cpp_no_function_highlight = 1
         let g:cpp_attributes_highlight = 1
@@ -67,11 +67,11 @@
           \ 'coc-clangd',
           \ ]
       '';
-      plugins = with pkgs.vimPlugins;
-      
-			let
-        
-				context-vim = pkgs.vimUtils.buildVimPlugin {
+      plugins = with pkgs.vimPlugins; 
+
+      let  
+
+        context-vim = pkgs.vimUtils.buildVimPlugin {
           name = "context-vim";
           src = pkgs.fetchFromGitHub {
             owner = "wellle";
@@ -81,7 +81,7 @@
           };
 	      };
         
-				vim-cpp-modern = pkgs.vimUtils.buildVimPlugin {
+        vim-cpp-modern = pkgs.vimUtils.buildVimPlugin {
           name = "vim-cpp-modern";
           src = pkgs.fetchFromGitHub {
             owner = "bfrg";
@@ -90,8 +90,8 @@
             sha256 = "0vcz2dk8l5qfgsc8vf0m7s3i2gl8s0k8wfmn79c9zxr8w6zjrrvs";
           };
         };
-					
-				coc-nvim = pkgs.vimUtils.buildVimPlugin {
+
+        coc-nvim = pkgs.vimUtils.buildVimPlugin {
           name = "coc.nvim";
           src = pkgs.fetchFromGitHub {
             owner = "neoclide";
@@ -119,18 +119,21 @@
         #sensible
         awesome-vim-colorschemes
         vim-airline #the bottom bar
-				vim-airline-themes
+        vim-airline-themes
         fugitive 
         rust-vim
         supertab #for tab completion
         vim-signify #a better alternative to vim-git-gutter
-				vim-nix
+        vim-nix
 	      colorizer
 	      vim-latex-live-preview
         vim-abolish
         command-t
 
         indentLine
+        indent-blankline-nvim
+
+        nvim-bufferline-lua
       ];
     };
   };
