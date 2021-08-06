@@ -13,6 +13,9 @@
       package = pkgs.neovim-nightly;
       vimAlias = true;
       extraConfig = ''
+        "for indentline
+        let g:indentLine_char = '▏'
+
         " set the mapleader to space
         let mapleader = " "
 
@@ -126,6 +129,8 @@
 	      vim-latex-live-preview
         vim-abolish
         command-t
+
+        indentLine
       ];
     };
   };
