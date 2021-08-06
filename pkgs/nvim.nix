@@ -23,15 +23,14 @@
         " Disable default mappings
         let g:nnn#set_default_mappings = 0
         nnoremap <leader>n :NnnPicker %:p:h<CR>
-
-        " leaderkey is '\' leaderkey + n opens nnn in vim        
+        " leaderkey is '\' leaderkey + n opens nnn in vim
         " Floating window (neovim latest and vim with patch 8.2.191)
         let g:nnn#layout = { 'window': { 'width': 0.9, 'height': 0.6, 'highlight': 'Debug' } }
 
         colorscheme onedark
         "colorscheme space-vim-dark
         let g:airline_theme='deus'
-        
+
         let g:javascript_plugin_jsdoc = 1
         let g:javascript_plugin_ngdoc = 1
         let g:javascript_plugin_flow = 1
@@ -79,8 +78,8 @@
             rev = "e38496f1eb5bb52b1022e5c1f694e9be61c3714c";
             sha256 = "1iy614py9qz4rwk9p4pr1ci0m1lvxil0xiv3ymqzhqrw5l55n346";
           };
-	      };
-        
+        };
+
         vim-cpp-modern = pkgs.vimUtils.buildVimPlugin {
           name = "vim-cpp-modern";
           src = pkgs.fetchFromGitHub {
@@ -125,15 +124,14 @@
         supertab #for tab completion
         vim-signify #a better alternative to vim-git-gutter
         vim-nix
-	      colorizer
-	      vim-latex-live-preview
+        colorizer
+        vim-latex-live-preview
         vim-abolish
-        command-t
 
         indentLine
         indent-blankline-nvim
 
-        nvim-bufferline-lua
+        nvim-treesitter
       ];
     };
   };
