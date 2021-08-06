@@ -13,6 +13,9 @@
       package = pkgs.neovim-nightly;
       vimAlias = true;
       extraConfig = ''
+        "galaxyline bottombar
+        luafile ~/.config/nixpkgs/pkgs/nvim/statusline.lua
+        
         " vim-fish 
         syntax enable
         filetype plugin indent on
@@ -35,7 +38,6 @@
 
         colorscheme onedark
         "colorscheme space-vim-dark
-        let g:airline_theme='deus'
 
         let g:javascript_plugin_jsdoc = 1
         let g:javascript_plugin_ngdoc = 1
@@ -124,8 +126,6 @@
         nnn-vim
         #sensible
         awesome-vim-colorschemes
-        vim-airline #the bottom bar
-        vim-airline-themes
         fugitive 
         rust-vim
         supertab #for tab completion
@@ -137,6 +137,10 @@
 
         indentLine
         indent-blankline-nvim
+
+        lspkind-nvim
+        galaxyline-nvim
+        nvim-web-devicons
       ];
     };
   };
