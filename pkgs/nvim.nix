@@ -25,6 +25,14 @@
         " set the mapleader to space
         let mapleader = " "
 
+        "Vim-pad : for taking notes while working on a file
+        "Disable default
+        let g:pad#set_mappings = 0
+        "let g:pad#silent_on_mappings_fail = 1
+        "more-info: https://github.com/fmoralesc/vim-pad/issues/67
+        let g:pad#dir = '~/.local/share/nvim/vim-pad/'
+        nnoremap <leader>p :Pad new<CR>
+
         " Start n³ in the current file's directory
         " Disable default mappings
         let g:nnn#set_default_mappings = 0
@@ -105,6 +113,15 @@
             sha256 = "1hpw03cxb22cmrjgisb8hf7pxqb06c4nk1n4sixrjj132d36pmpp";
           };
         };
+        vim-pad = pkgs.vimUtils.buildVimPlugin {
+          name = "vim-pad";
+          src = pkgs.fetchFromGitHub {
+            owner = "fmoralesc";
+            repo = "vim-pad";
+            rev = "2a39b6857ada72f1f81b12c85baf7f067cb90739";
+            sha256 = "0v4zfqa3nw9wmkp2jfd9i804mv9d98pv85js4mxhban174ihhizn";
+          };
+        };
 
       in
 
@@ -117,6 +134,7 @@
 
         vim-javascript
         vim-fish
+        vim-pad #for taking notes in vim
         vim-cpp-modern
         clang_complete
         context-vim
