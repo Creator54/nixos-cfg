@@ -17,10 +17,9 @@
     colorpicker smartmontools glances jq 
     youtube-dl fira-code ueberzug eva tree qbittorrent
     fira-code-symbols unzip picom cmus conky
-    cascadia-code inkscape obs-studio
-    source-code-pro speedtest-cli electron
+    cascadia-code inkscape obs-studio okular
+    source-code-pro speedtest-cli electron progress
     twemoji-color-font anydesk lm_sensors screenkey
   ];
-
   nixpkgs.config.allowUnfree = true; 
 }
