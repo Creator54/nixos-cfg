@@ -8,6 +8,10 @@
       layout = "us";
       libinput.enable = true; 				# touchpad support generally enabled by most display managers
       displayManager.startx.enable = true;
+      videoDrivers = [ "intel" ];
+      deviceSection = ''
+        Option "TearFree" "true"
+      '';
     };
 
     udev.extraRules = lib.mkMerge [
@@ -37,7 +41,7 @@
         # heat and increase battery usage:
         CPU_MAX_PERF_ON_AC=100;
         CPU_MAX_PERF_ON_BAT=5;
-	SOUND_POWER_SAVE_ON_AC=0;
+        SOUND_POWER_SAVE_ON_AC=0;
         SOUND_POWER_SAVE_ON_BAT=1;
       };
     };
