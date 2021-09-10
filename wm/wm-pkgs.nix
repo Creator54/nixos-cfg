@@ -10,4 +10,9 @@
     xorg.xf86inputlibinput
     xorg.xf86inputsynaptics
   ];
+  
+  services.udiskie = {
+    enable = true;
+    notify = true;
+  };
 }
