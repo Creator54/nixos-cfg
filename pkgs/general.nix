@@ -5,6 +5,7 @@
     ./git.nix
     ./nvim.nix
     ./bat.nix
+    ./htop.nix
     ./mcfly.nix
   ];
 
@@ -20,6 +21,7 @@
     cascadia-code inkscape obs-studio okular
     source-code-pro speedtest-cli electron progress
     twemoji-color-font anydesk lm_sensors screenkey
+    efibootmgr
   ];
   nixpkgs.config.allowUnfree = true; 
 }

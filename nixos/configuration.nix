@@ -8,7 +8,7 @@
       #./sys/kernel.nix
       #./sys/plymouth.nix
       #./sys/docker.nix
-      ./sys/nvidia.nix
+      #./sys/nvidia.nix
       #./vm-configs/virt-manager.nix
       #./vm-configs/virtualbox.nix
     ];
@@ -16,7 +16,7 @@
   boot = {
     loader = {
       systemd-boot.enable = true;
-      timeout = 5;
+      timeout = 2;
       efi.canTouchEfiVariables = true;
     };
     cleanTmpDir = true;
