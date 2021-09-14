@@ -15,6 +15,7 @@
       sort_descending = true;
       tree_view = true;
       update_process_names = true;
+      hide_userland_threads = true;
       vim_mode = true;
     };
   };
