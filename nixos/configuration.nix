@@ -6,6 +6,7 @@
       ./kernel/xanmod.nix #not including reverts kernel to one included in nixos revision
       ./sys/hardware.nix
       ./sys/services.nix
+      ./sys/flatpak.nix
       #./sys/plymouth.nix
       #./sys/docker.nix
       #./sys/nvidia.nix
@@ -57,7 +58,8 @@
     autoOptimiseStore = true; #automatically detects files in the store that have identical contents and replaces with hard links.
     gc = {
       automatic = true; 				# runs nix-collect-garbage which removes old unrefrenced packages
-      dates = "18:30";
+      dates = "weekly";
+      options = "--delete-older-than 7d";
     };
   };
 
