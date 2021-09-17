@@ -22,7 +22,7 @@
     inkscape obs-studio okular
     speedtest-cli electron progress
     anydesk lm_sensors screenkey
-    efibootmgr duf gdu
+    efibootmgr duf gdu xclip
   ];
   nixpkgs.config.allowUnfree = true; 
 }
