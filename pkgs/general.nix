@@ -3,9 +3,10 @@
 {
   imports = [
     ./git.nix
-    ./nvim.nix
     ./bat.nix
+    ./nvim.nix
     ./htop.nix
+    ./fonts.nix
     ./mcfly.nix
   ];
 
@@ -16,12 +17,12 @@
     capitaine-cursors kitty fortune file 
     w3m gnome.nautilus qtcreator vscode
     colorpicker smartmontools glances jq 
-    youtube-dl fira-code ueberzug eva tree qbittorrent
-    fira-code-symbols unzip picom cmus conky
-    cascadia-code inkscape obs-studio okular
-    source-code-pro speedtest-cli electron progress
-    twemoji-color-font anydesk lm_sensors screenkey
-    efibootmgr
+    youtube-dl ueberzug eva tree qbittorrent
+    unzip picom cmus conky
+    inkscape obs-studio okular
+    speedtest-cli electron progress
+    anydesk lm_sensors screenkey
+    efibootmgr duf gdu
   ];
   nixpkgs.config.allowUnfree = true; 
 }
