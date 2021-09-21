@@ -5,7 +5,7 @@
     ./git.nix
     ./bat.nix
     ./nvim.nix
-    ./htop.nix
+    #./htop.nix
     ./fonts.nix
     ./mcfly.nix
   ];

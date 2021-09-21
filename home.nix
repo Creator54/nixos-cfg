@@ -7,8 +7,6 @@
     ./wm/awesome.nix
   ];
 
-  programs.home-manager.enable = true;
-
   home = {
     username = "creator54";
     homeDirectory = "/home/creator54";
