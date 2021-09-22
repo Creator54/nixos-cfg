@@ -23,6 +23,7 @@
     speedtest-cli electron progress
     anydesk lm_sensors screenkey
     efibootmgr duf gdu xclip
+    jupyter
   ];
   nixpkgs.config.allowUnfree = true; 
 }
