@@ -18,7 +18,7 @@
     w3m gnome.nautilus qtcreator vscode
     colorpicker smartmontools glances jq 
     youtube-dl ueberzug eva tree qbittorrent
-    unzip picom cmus conky
+    unzip picom cmus conky fd #faster find alternative
     inkscape obs-studio okular
     speedtest-cli electron progress
     anydesk lm_sensors screenkey
