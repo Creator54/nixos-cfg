@@ -9,6 +9,7 @@
     xorg.xf86inputkeyboard
     xorg.xf86inputlibinput
     xorg.xf86inputsynaptics
+    gnome.gnome-keyring gnome.libsecret
   ];
   
   services.udiskie = {
