@@ -6,6 +6,7 @@
     ./bat.nix
     ./nvim.nix
     #./htop.nix
+    ./kitty.nix
     ./fonts.nix
     ./mcfly.nix
     ./zathura.nix
