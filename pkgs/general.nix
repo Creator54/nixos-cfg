@@ -8,6 +8,7 @@
     #./htop.nix
     ./fonts.nix
     ./mcfly.nix
+    ./zathura.nix
   ];
 
   home.packages = with pkgs; [
