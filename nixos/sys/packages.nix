@@ -31,7 +31,7 @@
     xorg.xf86inputlibinput
     xorg.xf86inputsynaptics
   ];
-  
+
   # Some fonts
    fonts.fonts = with pkgs; [
      fira-code fira-code-symbols

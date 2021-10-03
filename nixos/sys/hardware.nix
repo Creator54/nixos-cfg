@@ -23,7 +23,7 @@
 
     # https://github.com/NixOS/nixpkgs/issues/18356
     blacklistedKernelModules = [ "nouveau" ];
-    
+
     kernelParams = [
       "i915.enable_fbc=1"
       "i915.enable_psr=2"
@@ -80,6 +80,6 @@
     numDevices = 1;
     priority = 5;
   };
-    
+
   swapDevices = [ { device = "/swapfile"; size = 4096; } ];
 }

@@ -11,7 +11,7 @@
     xorg.xf86inputsynaptics
     gnome.gnome-keyring gnome.libsecret
   ];
-  
+
   services.udiskie = {
     enable = true;
     notify = true;

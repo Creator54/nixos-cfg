@@ -57,7 +57,7 @@
     # Hard disk protection if the laptop falls:
     hdapsd.enable = lib.mkDefault true;
     # printing.enable = true; 				# enables CUPS for printing
-    
+
     actkbd = {
       enable = true;
       bindings = [  # light controls
@@ -69,10 +69,10 @@
     #auto-cpufreq.enable = true;
     #mongodb.enable = true;
   };
-  
+
   # systemd services which i dont like/use mostly cuz increases boot time and i find no issues not having them
   systemd.services = {
-    systemd-udev-settle.enable = false;			
+    systemd-udev-settle.enable = false;
     NetworkManager-wait-online.enable = false;
     firewall.enable = false;
     systemd-journal-flush.enable = false;

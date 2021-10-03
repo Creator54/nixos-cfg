@@ -21,11 +21,11 @@ in
         #userChrome = builtins.readFile firefox-configs/chrome/userChrome.css;
         settings = {
           "browser.startup.homepage" = "https://shodan.io";
-          "browser.search.region" = "IN";                      
-          "browser.search.isUS" = false;                       
+          "browser.search.region" = "IN";
+          "browser.search.isUS" = false;
           "distribution.searchplugins.defaultLocale" = "en-IN";
-          "general.useragent.locale" = "en-IN";                
-          "browser.bookmarks.showMobileBookmarks" = true;      
+          "general.useragent.locale" = "en-IN";
+          "browser.bookmarks.showMobileBookmarks" = true;
         };
       };
     };

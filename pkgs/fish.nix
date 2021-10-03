@@ -17,7 +17,7 @@
        r = "nix-env --uninstall";
        q = "nix-env -q";
        n = "nvidia-offload";
-       
+
        # git aliases
        gi = "git init";
        gc = "git commit";

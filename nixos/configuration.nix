@@ -2,7 +2,7 @@
 
 {
   imports =
-    [ 
+    [
       ./kernel/xanmod.nix #not including reverts kernel to one included in nixos revision
       ./sys/hardware.nix
       ./sys/services.nix
@@ -29,8 +29,8 @@
     hostName = "CosPi";
     nameservers = ["8.8.4.4" "8.8.8.8" "1.1.1.1" "9.9.9.9"]; #without this will have to add nameserves to /etc/resolv.conf , internet fails without this on chroot, should be declared since not using dhcp
   };
- 
-  environment.systemPackages = [ pkgs.home-manager ]; 
+
+  environment.systemPackages = [ pkgs.home-manager ];
   time.timeZone = "Asia/Kolkata";
 
   # Select internationalisation properties.
@@ -49,7 +49,7 @@
        shell = pkgs.fish;
     };
   };
- 
+
   security.allowSimultaneousMultithreading = true;
 
   #services.openssh.enable = true;

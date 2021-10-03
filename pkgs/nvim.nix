@@ -13,7 +13,7 @@
       package = pkgs.neovim-nightly;
       vimAlias = true;
       extraConfig = ''
-        " vim-fish 
+        " vim-fish
         syntax enable
         filetype plugin indent on
         " Set this to have long lines wrap inside comments.
@@ -64,6 +64,9 @@
         set number
         set undofile
 
+        "remove trailing spaces
+        nnoremap <leader>t :%s/\s\+$//e <CR> :w <CR>
+
         "to remove coc-extensions you need to manually remove the lines from ~/.config/coc/extensions/package.json
         let g:coc_global_extensions = [
           \ 'coc-snippets',
@@ -80,9 +83,9 @@
           \ 'coc-clangd',
           \ ]
       '';
-      plugins = with pkgs.vimPlugins; 
+      plugins = with pkgs.vimPlugins;
 
-      let  
+      let
 
         context-vim = pkgs.vimUtils.buildVimPlugin {
           name = "context-vim";
@@ -144,7 +147,7 @@
         awesome-vim-colorschemes
         vim-airline #the bottom bar
         vim-airline-themes
-        fugitive 
+        fugitive
         rust-vim
         supertab #for tab completion
         vim-signify #a better alternative to vim-git-gutter
