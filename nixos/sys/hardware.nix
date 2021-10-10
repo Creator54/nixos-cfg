@@ -1,13 +1,13 @@
 { config, lib, pkgs, modulesPath, ... }:
 
 {
-  imports =
-    [ (modulesPath + "/installer/scan/not-detected.nix")
-    ];
+  imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
 
   boot = {
-    initrd.availableKernelModules = [ "xhci_pci" "ahci" "usb_storage" "sd_mod" "sr_mod" ];
-    initrd.kernelModules = [ "i915" ];
+    initrd = {
+      availableKernelModules = [ "xhci_pci" "ahci" "usb_storage" "sd_mod" "sr_mod" ];
+      kernelModules = [ "i915" ];
+    };
     kernelModules = [ "kvm-intel" ];
     extraModulePackages = [ ];
     supportedFilesystems = [ "ntfs-3g" ];
@@ -34,44 +34,57 @@
 
   hardware = {
     cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
-    opengl.driSupport32Bit = true;
-    opengl.extraPackages = with pkgs; [
-      vaapiIntel
-      vaapiVdpau
-      libvdpau-va-gl
-      intel-media-driver
-    ];
-    pulseaudio.enable = true;
-    pulseaudio.support32Bit = true;
+    opengl = {
+      driSupport32Bit = true;
+      extraPackages = with pkgs; [
+        vaapiIntel
+        vaapiVdpau
+        libvdpau-va-gl
+        intel-media-driver
+      ];
+    };
+    bluetooth = {
+      enable = true;
+      settings.General.Enable = "Source,Sink,Media,Socket";
+    };
+    pulseaudio = {
+      enable = true;
+      support32Bit = true;
+      #Enabling extra codecs
+      extraModules = [ pkgs.pulseaudio-modules-bt ];
+      package = pkgs.pulseaudioFull;
+      extraConfig = "load-module module-switch-on-connect";
+    };
   };
 
   # Setting noatime in the fstab greatly improves filesystem performance.
-  fileSystems."/" =
-    { device = "/dev/sda4";
+  fileSystems = {
+    "/" = {
+      device = "/dev/sda4";
       fsType = "ext4";
       options = [ "noatime" ];
     };
 
-  fileSystems."/boot" =
-    { device = "/dev/sda1";
+    "/boot" = {
+      device = "/dev/sda1";
       fsType = "vfat";
     };
 
-  fileSystems."/home" =
-    { device = "/dev/sda5";
+    "/home" = {
+      device = "/dev/sda5";
       fsType = "ext4";
     };
 
- # fileSystems."/run/mount/data" =
- #   { device = "/dev/sda6";
- #     fsType = "ntfs";
- #     options = [ "rw" "uid=1000" "gid=100"]; #1000 is $USER uid
- #   };
-  fileSystems."/run/mount/data1" =
-    { device = "/dev/sda7";
+   # "/run/mount/data" = {
+   #    device = "/dev/sda6";
+   #    fsType = "ntfs";
+   #    options = [ "rw" "uid=1000" "gid=100"]; #1000 is $USER uid
+   #  };
+    "/run/mount/data1" = {
+      device = "/dev/sda7";
       fsType = "ext4";
     };
-
+  };
   zramSwap = {
     enable = true;
     algorithm = "zstd";
