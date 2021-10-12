@@ -7,6 +7,7 @@
       ./sys/hardware.nix
       ./sys/services.nix
       ./sys/flatpak.nix
+      ./sys/bt.nix
       #./sys/plymouth.nix
       #./sys/docker.nix
       #./sys/nvidia.nix

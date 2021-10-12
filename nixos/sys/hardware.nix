@@ -43,10 +43,6 @@
         intel-media-driver
       ];
     };
-    bluetooth = {
-      enable = true;
-      settings.General.Enable = "Source,Sink,Media,Socket";
-    };
     pulseaudio = {
       enable = true;
       support32Bit = true;
