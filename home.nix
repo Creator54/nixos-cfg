@@ -4,7 +4,6 @@
   imports = [
     ./pkgs/general.nix
     ./wm/wm-pkgs.nix
-    ./wm/awesome.nix
   ];
 
   home = {

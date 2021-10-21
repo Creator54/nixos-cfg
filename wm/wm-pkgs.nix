@@ -4,6 +4,7 @@
     feh rofi betterlockscreen
     networkmanagerapplet dmenu
     flameshot
+    xorg.xbacklight
     xorg.xf86videointel
     xorg.xf86inputmouse
     xorg.xf86inputkeyboard
@@ -12,8 +13,10 @@
     gnome.gnome-keyring gnome.libsecret
   ];
 
-  services.udiskie = {
-    enable = true;
-    notify = true;
+  services = {
+    udiskie = {
+      enable = true;
+      notify = true;
+    };
   };
 }

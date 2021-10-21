@@ -28,7 +28,7 @@
       "i915.enable_fbc=1"
       "i915.enable_psr=2"
       "intel_pstate=disable"
-      "resume_offset=61440" #get it via sudo filefrag -v /swapfile | awk '{if($1=="0:"){print $4}}'
+      "resume_offset=1409024" #get it via sudo filefrag -v /swapfile | awk '{if($1=="0:"){print $4}}'
     ];
   };
 

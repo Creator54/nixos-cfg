@@ -8,6 +8,7 @@
       ./sys/services.nix
       ./sys/flatpak.nix
       ./sys/bt.nix
+      ./../wm/dwm.nix
       #./sys/plymouth.nix
       #./sys/docker.nix
       #./sys/nvidia.nix
