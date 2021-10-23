@@ -25,7 +25,8 @@
     speedtest-cli electron progress
     anydesk lm_sensors screenkey
     efibootmgr duf gdu xclip
-    jupyter zathura clipit nix-output-monitor dig
+    jupyter zathura clipit nix-output-monitor
+    dig ffmpeg pciutils
   ];
   nixpkgs.config.allowUnfree = true;
 }
