@@ -26,7 +26,7 @@
     anydesk lm_sensors screenkey
     efibootmgr duf gdu xclip
     jupyter zathura clipit nix-output-monitor
-    dig ffmpeg pciutils
+    dig ffmpeg pciutils nix-index #contains nix-locate
   ];
   nixpkgs.config.allowUnfree = true;
 }
