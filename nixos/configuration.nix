@@ -8,6 +8,8 @@
       ./sys/services.nix
       ./sys/flatpak.nix
       ./sys/bt.nix
+      ./sys/hosts.nix
+      ./sys/resolved-hosts.nix
       ./../wm/dwm.nix
       #./sys/plymouth.nix
       #./sys/docker.nix
