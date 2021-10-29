@@ -27,6 +27,7 @@
     efibootmgr duf gdu xclip
     jupyter zathura clipit nix-output-monitor
     dig ffmpeg pciutils nix-index #contains nix-locate
+    entr
   ];
   nixpkgs.config.allowUnfree = true;
 }
