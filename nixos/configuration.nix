@@ -10,7 +10,6 @@
       ./sys/bt.nix
       ./sys/hosts.nix
       ./sys/resolved-hosts.nix
-      ./../wm/dwm.nix
       #./sys/plymouth.nix
       #./sys/docker.nix
       #./sys/nvidia.nix
@@ -21,7 +20,7 @@
   boot = {
     loader = {
       systemd-boot.enable = true;
-      timeout = 2;
+      timeout = 0;
       efi.canTouchEfiVariables = true;
     };
     cleanTmpDir = true;
@@ -56,7 +55,11 @@
 
   security.allowSimultaneousMultithreading = true;
 
-  #services.openssh.enable = true;
+  #services.openssh = {
+  #  enable = true;
+  #  forwardX11 = true;
+  #};
+
   # Maintainence
   nix = {
     autoOptimiseStore = true; #automatically detects files in the store that have identical contents and replaces with hard links.
