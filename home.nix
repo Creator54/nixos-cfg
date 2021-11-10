@@ -14,6 +14,7 @@
     file = {
       ".config/gromit-mpx.ini".source = ./configs/gromit-mpx.ini;
       ".config/fish".source = ./configs/fish;
+      ".fehbg".source = ./configs/fehbg;
       ".xinitrc".source = ./configs/xinitrc;
       ".Xresources".source = ./configs/Xresources;
     };
