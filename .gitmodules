@@ -1,3 +1,6 @@
 [submodule "configs/fish"]
 	path = configs/fish
 	url = https://github.com/creator54/fish.git
+[submodule "wm/wm-configs/awesome"]
+	path = wm/wm-configs/awesome
+	url = https://github.com/creator54/awesome.git

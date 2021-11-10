@@ -31,7 +31,7 @@ elif which bspwm; then
 elif which sway;then
 	sway --my-next-gpu-wont-be-nvidia
 else
-	exec ~/.config/dwm/autostart.sh &
-	exec ~/.config/dwm/dwm
-
+	path="~/.config/nixpkgs/wm/wm-configs/dwm"
+	exec $path/autostart.sh &
+	exec $path/dwm
 fi
