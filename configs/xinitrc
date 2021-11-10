@@ -1,0 +1,37 @@
+#alsactl restore
+export `dbus-launch` # starts dbus and exports its address
+systemctl --user start udiskie.service & #for automounting usb drives
+
+#keyring stuff
+#systemctl --user status gnome-keyring.service &
+#mkdir -p "$HOME"/.local/share/keyrings &
+#source /etc/X11/xinit/xinitrc.d/50-systemd-user.sh & 
+
+nm-applet &
+oneko -dog -tofocus &
+#albert & #this increases ram consumption by 500+ Mib
+blueman-applet &
+xrdb -load ~/.Xresources &
+numlockx on &
+~/.fehbg &
+xset -b & 
+flameshot &
+betterlockscreen -l -tf "%I:%M %p" -t "Don't touch my Machine!" &
+#pkill conky;conky -c ~/.config/conky/minimalismRC &
+#pkill glava;glava --dekstop &
+picom -CG --experimental-backends &
+pkill clipit; clipit -n &
+
+if which xfce4-session; then
+	exec startxfce4
+elif which awesome; then
+	exec awesome
+elif which bspwm; then
+	exec bspwm
+elif which sway;then
+	sway --my-next-gpu-wont-be-nvidia
+else
+	exec ~/.config/dwm/autostart.sh &
+	exec ~/.config/dwm/dwm
+
+fi

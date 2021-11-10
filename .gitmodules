@@ -1,0 +1,3 @@
+[submodule "configs/fish"]
+	path = configs/fish
+	url = https://github.com/creator54/fish.git

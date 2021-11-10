@@ -45,20 +45,6 @@
         "colorscheme space-vim-dark
         let g:airline_theme='deus'
 
-        let g:javascript_plugin_jsdoc = 1
-        let g:javascript_plugin_ngdoc = 1
-        let g:javascript_plugin_flow = 1
-        augroup javascript_folding
-        au!
-          au FileType javascript setlocal foldmethod=syntax
-        augroup END
-
-        let g:cpp_no_function_highlight = 1
-        let g:cpp_attributes_highlight = 1
-        let g:cpp_member_highlight = 1
-        let g:cpp_simple_highlight = 1
-
-        let g:clang_library_path='/nix/store/r0h2irmx6dk447dpszd9j7zw306rbqnq-clang-8.0.1-lib/lib/libclang.so'
         set ts=2 sw=2
         "set relativenumber
         set number
@@ -66,22 +52,6 @@
 
         "remove trailing spaces
         nnoremap <leader>t :%s/\s\+$//e <CR> :w <CR>
-
-        "to remove coc-extensions you need to manually remove the lines from ~/.config/coc/extensions/package.json
-        let g:coc_global_extensions = [
-          \ 'coc-snippets',
-          \ 'coc-pairs',
-          \ 'coc-tsserver',
-          \ 'coc-eslint',
-          \ 'coc-prettier',
-          \ 'coc-json',
-          \ 'coc-python',
-          \ 'coc-java',
-          \ 'coc-html',
-          \ 'coc-css',
-          \ 'coc-yaml',
-          \ 'coc-clangd',
-          \ ]
       '';
       plugins = with pkgs.vimPlugins;
 

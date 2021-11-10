@@ -68,7 +68,7 @@
 
     #auto-cpufreq.enable = true;
     #mongodb.enable = true;
-    gnome.gnome-keyring.enable = true;
+    gnome.gnome-keyring.enable = true; #fails to save if enabled via home-manager
   };
 
   # systemd services which i dont like/use mostly cuz increases boot time and i find no issues not having them
