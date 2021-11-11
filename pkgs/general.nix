@@ -28,7 +28,7 @@
     efibootmgr duf gdu xclip
     jupyter zathura clipit nix-output-monitor
     dig ffmpeg pciutils nix-index #contains nix-locate
-    entr googler imgp recode glow
+    entr googler imgp recode glow papirus-maia-icon-theme
   ];
   nixpkgs.config.allowUnfree = true;
 }

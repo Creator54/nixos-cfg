@@ -1,7 +1,7 @@
 { config, pkgs, libs, ... }:
 {
   home.packages = with pkgs;[
-    feh rofi betterlockscreen
+    feh betterlockscreen
     networkmanagerapplet dmenu
     flameshot
     xorg.xbacklight
@@ -11,6 +11,11 @@
     xorg.xf86inputlibinput
     xorg.xf86inputsynaptics
   ];
+
+  programs.rofi = {
+    enable = true;
+    configPath = "$(pwd)/wm-configs/rofi/config.rasi";
+  };
 
   services = {
     udiskie = {
