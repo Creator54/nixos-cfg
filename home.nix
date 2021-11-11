@@ -15,6 +15,7 @@
       ".config/gromit-mpx.ini".source = ./configs/gromit-mpx.ini;
       ".config/flameshot".source = ./configs/flameshot;
       ".config/fish".source = ./configs/fish;
+      ".config/htop".source = ./configs/htop;
       ".fehbg".source = ./configs/fehbg;
       ".xinitrc".source = ./configs/xinitrc;
       ".Xresources".source = ./configs/Xresources;
