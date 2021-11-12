@@ -1,5 +1,4 @@
 #alsactl restore
-export `dbus-launch` # starts dbus and exports its address
 systemctl --user start udiskie.service & #for automounting usb drives
 
 #keyring stuff
@@ -20,7 +19,7 @@ betterlockscreen -l -tf "%I:%M %p" -t "Don't touch my Machine!" &
 #pkill conky;conky -c ~/.config/conky/minimalismRC &
 #pkill glava;glava --dekstop &
 picom -CG --experimental-backends &
-pkill clipit; clipit -n &
+#pkill clipit; clipit -n &
 
 if which xfce4-session; then
 	exec startxfce4
@@ -32,6 +31,6 @@ elif which sway;then
 	sway --my-next-gpu-wont-be-nvidia
 else
 	path="~/.config/nixpkgs/wm/wm-configs/dwm"
-	exec $path/autostart.sh &
+	exec $path/dwmblocks/dwmblocks &
 	exec $path/dwm
 fi
