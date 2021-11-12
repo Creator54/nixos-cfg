@@ -58,13 +58,13 @@
     hdapsd.enable = lib.mkDefault true;
     # printing.enable = true; 				# enables CUPS for printing
 
-    actkbd = {
-      enable = true;
-      bindings = [  # light controls
-        { keys = [ 225 ]; events = [ "key" ]; command = "/run/current-system/sw/bin/light -A 10"; }
-        { keys = [ 224 ]; events = [ "key" ]; command = "/run/current-system/sw/bin/light -U 10"; }
-      ];
-    };
+    #actkbd = {
+    #  enable = true;
+    #  bindings = [  # light controls
+    #    { keys = [ 225 ]; events = [ "key" ]; command = "/run/current-system/sw/bin/light -A 10"; }
+    #    { keys = [ 224 ]; events = [ "key" ]; command = "/run/current-system/sw/bin/light -U 10"; }
+    #  ];
+    #};
 
     #auto-cpufreq.enable = true;
     #mongodb.enable = true;
