@@ -11,7 +11,7 @@
       ./sys/hosts.nix
       ./sys/resolved-hosts.nix
       #./sys/plymouth.nix
-      #./sys/docker.nix
+      ./sys/docker.nix
       #./sys/nvidia.nix
       #./vm-configs/virt-manager.nix
       #./vm-configs/virtualbox.nix

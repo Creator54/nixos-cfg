@@ -4,6 +4,7 @@
   #docker
   virtualisation.docker = {
     enable = true;
+    enableOnBoot = false;
     extraOptions = "--config-file=${pkgs.writeText "daemon.json" (builtins.toJSON {
       graph ="/run/mount/data1/docker";
       storage-driver = "overlay";
