@@ -2,7 +2,7 @@
 {
   home.packages = with pkgs;[
     feh rofi betterlockscreen
-    networkmanagerapplet dmenu
+    networkmanagerapplet
     flameshot
     xorg.xbacklight
     xorg.xf86videointel
