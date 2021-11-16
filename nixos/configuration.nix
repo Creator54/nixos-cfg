@@ -8,6 +8,7 @@
       ./sys/services.nix
       ./sys/flatpak.nix
       ./sys/bt.nix
+      ./sys/samba.nix
       ./sys/hosts.nix
       ./sys/resolved-hosts.nix
       #./sys/plymouth.nix
