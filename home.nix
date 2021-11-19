@@ -3,7 +3,7 @@
 {
   imports = [
     ./pkgs/general.nix 
-    ./wm/wm-pkgs.nix #dwm default wm, if none specified dwm boots
+    ./wm/wm-pkgs.nix #if none specified defaults to dwm
   ];
 
   home = {
