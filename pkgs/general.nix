@@ -29,7 +29,7 @@
     jupyter zathura clipit nix-output-monitor
     dig ffmpeg pciutils nix-index #contains nix-locate
     entr googler imgp recode glow 
-    papirus-maia-icon-theme fff
+    papirus-maia-icon-theme fff acpi
   ];
   nixpkgs.config.allowUnfree = true;
 }
