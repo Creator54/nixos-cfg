@@ -11,9 +11,10 @@
       ./sys/samba.nix
       ./sys/hosts.nix
       ./sys/resolved-hosts.nix
-      #./sys/plymouth.nix
       ./sys/docker.nix
+      ./sys/plymouth.nix
       #./sys/nvidia.nix
+      #./sys/silent_boot.nix
       #./vm-configs/virt-manager.nix
       #./vm-configs/virtualbox.nix
     ];
@@ -40,17 +41,18 @@
   # Select internationalisation properties.
   i18n.defaultLocale = "en_IN.UTF-8";
   console = {
-    font = "Lat2-Terminus16";
-    keyMap = "us";
     earlySetup = true;
+    font = "${pkgs.terminus_font}/share/consolefonts/ter-v18n.psf.gz"; #setfont ter-132b
+    packages = with pkgs; [ terminus_font ];
+    keyMap = "us";
   };
 
   # useraccount & properties
   users = {
     users.creator54 = {
-       isNormalUser = true;
-       extraGroups = [ "power" "storage" "wheel" "audio" "video" "networkmanager" ];
-       shell = pkgs.fish;
+      isNormalUser = true;
+      extraGroups = [ "power" "storage" "wheel" "audio" "video" "networkmanager" ];
+      shell = pkgs.fish;
     };
   };
 
@@ -69,6 +71,7 @@
       dates = "weekly";
       options = "--delete-older-than 7d";
     };
+    trustedUsers = [ "root" "creator54" ]; #for cachix to work
   };
 
   time.hardwareClockInLocalTime = true;
