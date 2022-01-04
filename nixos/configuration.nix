@@ -40,12 +40,12 @@
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_IN.UTF-8";
-  console = {
-    earlySetup = true;
-    font = "${pkgs.terminus_font}/share/consolefonts/ter-v18n.psf.gz"; #setfont ter-132b
-    packages = with pkgs; [ terminus_font ];
-    keyMap = "us";
-  };
+  #console = {
+  #  earlySetup = true;
+  #  font = "${pkgs.terminus_font}/share/consolefonts/ter-v18n.psf.gz"; #setfont ter-132b
+  #  packages = with pkgs; [ terminus_font ];
+  #  keyMap = "us";
+  #};
 
   # useraccount & properties
   users = {
@@ -75,6 +75,6 @@
   };
 
   time.hardwareClockInLocalTime = true;
-  system.stateVersion = "21.05";
+  system.stateVersion = "21.11";
 }
 

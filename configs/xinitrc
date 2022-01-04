@@ -11,7 +11,7 @@ nm-applet &
 blueman-applet &
 xrdb -load ~/.Xresources &
 numlockx on &
-feh --bg-fill wallpapers/wallhaven-8xr3e2.jpg
+feh --bg-fill --randomize ~/wallpapers/
 xset -b & 
 flameshot &
 betterlockscreen -l -tf "%I:%M %p" -t "Don't touch my Machine!" &
