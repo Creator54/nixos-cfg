@@ -22,7 +22,7 @@
     colorpicker smartmontools glances jq
     youtube-dl ueberzug eva tree qbittorrent
     unzip picom cmus conky fd #faster find alternative
-    inkscape okular
+    inkscape okular gromit-mpx
     speedtest-cli electron progress
     anydesk lm_sensors screenkey
     efibootmgr duf gdu xclip
