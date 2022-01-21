@@ -46,6 +46,14 @@
         let g:airline_theme='deus'
 
         set ts=2 sw=2
+
+        " tab=2spaces
+        " https://stackoverflow.com/questions/1878974/redefine-tab-as-4-spaces
+        set tabstop=2
+        set softtabstop=0 noexpandtab
+        set shiftwidth=2
+        set tabstop=4 softtabstop=0 expandtab shiftwidth=2 smarttab
+        
         "set relativenumber
         set number
         set undofile
