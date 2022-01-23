@@ -60,6 +60,12 @@
 
         "remove trailing spaces
         nnoremap <leader>t :%s/\s\+$//e <CR> :w <CR>
+
+        " Find files using Telescope command-line sugar.
+        nnoremap <leader>f <cmd>Telescope find_files<cr>
+        nnoremap <leader>g <cmd>Telescope live_grep<cr>
+        nnoremap <leader>b <cmd>Telescope buffers<cr>
+        nnoremap <leader>h <cmd>Telescope help_tags<cr>
       '';
       plugins = with pkgs.vimPlugins;
 
@@ -75,25 +81,6 @@
           };
         };
 
-        vim-cpp-modern = pkgs.vimUtils.buildVimPlugin {
-          name = "vim-cpp-modern";
-          src = pkgs.fetchFromGitHub {
-            owner = "bfrg";
-            repo = "vim-cpp-modern";
-            rev = "1a0d31ff541e115895b6357b203a0969835b3212";
-            sha256 = "0vcz2dk8l5qfgsc8vf0m7s3i2gl8s0k8wfmn79c9zxr8w6zjrrvs";
-          };
-        };
-
-        coc-nvim = pkgs.vimUtils.buildVimPlugin {
-          name = "coc.nvim";
-          src = pkgs.fetchFromGitHub {
-            owner = "neoclide";
-            repo = "coc.nvim";
-            rev = "9d3c40bcb2304cda1697a0d898ce4d8b00e6e170";
-            sha256 = "1hpw03cxb22cmrjgisb8hf7pxqb06c4nk1n4sixrjj132d36pmpp";
-          };
-        };
         vim-pad = pkgs.vimUtils.buildVimPlugin {
           name = "vim-pad";
           src = pkgs.fetchFromGitHub {
@@ -104,11 +91,7 @@
           };
         };
 
-      in
-
-      [
-        coc-nvim
-
+      in [
         popup-nvim    #all 3 as per telescope-nvim
         plenary-nvim
         telescope-nvim
@@ -116,23 +99,18 @@
         vim-javascript
         vim-fish
         vim-pad #for taking notes in vim
-        vim-cpp-modern
-        clang_complete
         context-vim
-        yats-vim
         nnn-vim
         #sensible
         awesome-vim-colorschemes
         vim-airline #the bottom bar
         vim-airline-themes
-        fugitive
-        rust-vim
+        fugitive #usage :G log/remote, works like git log/remote
         supertab #for tab completion
         vim-signify #a better alternative to vim-git-gutter
         vim-nix
-        colorizer
-        vim-latex-live-preview
-        vim-abolish
+        colorizer #colors code in files
+        vim-abolish #used for search and replace in files #https://github.com/tpope/vim-abolish
 
         indentLine
         indent-blankline-nvim

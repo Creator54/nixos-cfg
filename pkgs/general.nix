@@ -30,6 +30,7 @@
     dig ffmpeg pciutils nix-index #contains nix-locate
     entr googler imgp recode glow 
     papirus-maia-icon-theme fff acpi sxiv axel python3
+    pandoc texlive.combined.scheme-small #for converting .md files to pdf
   ];
   nixpkgs.config.allowUnfree = true;
 }
