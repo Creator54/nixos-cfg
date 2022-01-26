@@ -2,7 +2,7 @@
 
 {
   imports = [
-    ./pkgs/general.nix 
+    ./pkgs/general.nix
     ./wm/wm-pkgs.nix #if none specified defaults to dwm
   ];
 
@@ -15,6 +15,8 @@
       ".config/gromit-mpx.ini".source = ./configs/gromit-mpx.ini;
       ".config/flameshot".source = ./configs/flameshot;
       ".config/fish".source = ./configs/fish;
+      ".config/mpv/scripts".source = ./configs/mpv/scripts;
+      ".config/mpv/script-opts/youtube-quality.conf".source = ./configs/mpv/youtube-quality.conf;
       ".config/rofi".source = ./wm/wm-configs/rofi;
       ".config/gtk-3.0".source = ./configs/gtk-3.0;
       ".config/htop".source = ./configs/htop;

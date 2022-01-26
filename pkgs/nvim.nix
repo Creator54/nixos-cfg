@@ -66,6 +66,34 @@
         nnoremap <leader>g <cmd>Telescope live_grep<cr>
         nnoremap <leader>b <cmd>Telescope buffers<cr>
         nnoremap <leader>h <cmd>Telescope help_tags<cr>
+
+        " Call compile
+        " Open the PDF from /tmp/
+        function! Preview()
+          :call Compile()<CR><CR>
+          execute "! zathura %.pdf &"
+        endfunction
+        
+        " [1] Get the extension of the file
+        " [2] Apply appropriate compilation command
+        " [3] Save PDF as /tmp/op.pdf
+        function! Compile()
+          let extension = expand('%:e')
+          if extension == "ms"
+            execute "! groff -ms % -T pdf > %.pdf"
+          elseif extension == "tex"
+            execute "! pandoc -f latex -t latex % -o %.pdf"
+          elseif extension == "md"
+            execute "! pandoc % -s -o %.pdf"
+          endif
+        endfunction
+        
+        " map \ + p to preview
+        noremap <leader>v :call Preview()<CR><CR><CR>
+        
+        " map \ + q to compile
+        noremap <leader>c :call Compile()<CR><CR>
+
       '';
       plugins = with pkgs.vimPlugins;
 
