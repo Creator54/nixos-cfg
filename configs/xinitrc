@@ -7,19 +7,21 @@ systemctl --user start udiskie.service & #for automounting usb drives
 #source /etc/X11/xinit/xinitrc.d/50-systemd-user.sh & 
 
 nm-applet &
+nmcli con up CoudBe & #try connecting to Coudbe if up
 #albert & #this increases ram consumption by 500+ Mib
 blueman-applet &
+bluetoothctl connect 20:20:10:21:A4:8C & #try connecting on login
 xrdb -load ~/.Xresources &
 numlockx on &
 feh --bg-fill --randomize ~/wallpapers/
 xset -b & 
 flameshot &
+picom -CG --experimental-backends &
+pkill clipit; clipit -n &
+betterlockscreen -u $(shuf -n1 -e ~/wallpapers/*) -b 0.7 & #set a new lockscreen wallpaper everytime
 betterlockscreen -l -tf "%I:%M %p" -t "Don't touch my Machine!" &
 #pkill conky;conky -c ~/.config/conky/minimalismRC &
 #pkill glava;glava --dekstop &
-picom -CG --experimental-backends &
-pkill clipit; clipit -n &
-
 if which xfce4-session; then
 	exec startxfce4
 elif which awesome; then
