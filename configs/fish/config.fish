@@ -21,7 +21,11 @@ alias gx "git reset --hard"
 
 if status is-interactive
   and not set -q TMUX
-  exec tmux
+  if tmux ls
+    exec tmux attach
+  else
+    exec tmux
+  end
 end
 
 function cmd
