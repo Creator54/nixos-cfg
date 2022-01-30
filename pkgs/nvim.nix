@@ -10,7 +10,7 @@
   programs = {
     neovim = {
       enable = true;
-      package = pkgs.neovim-nightly;
+      #package = pkgs.neovim-nightly;
       vimAlias = true;
       extraConfig = ''
         " vim-fish
@@ -53,7 +53,7 @@
         set softtabstop=0 noexpandtab
         set shiftwidth=2
         set tabstop=4 softtabstop=0 expandtab shiftwidth=2 smarttab
-        
+
         "set relativenumber
         set number
         set undofile
@@ -73,7 +73,7 @@
           :call Compile()<CR><CR>
           execute "! zathura %.pdf &"
         endfunction
-        
+
         " [1] Get the extension of the file
         " [2] Apply appropriate compilation command
         " [3] Save PDF as /tmp/op.pdf
@@ -87,10 +87,10 @@
             execute "! pandoc % -s -o %.pdf"
           endif
         endfunction
-        
+
         " map \ + p to preview
         noremap <leader>v :call Preview()<CR><CR><CR>
-        
+
         " map \ + q to compile
         noremap <leader>c :call Compile()<CR><CR>
 

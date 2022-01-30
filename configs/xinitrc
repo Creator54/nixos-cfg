@@ -1,5 +1,6 @@
 #alsactl restore
 systemctl --user start udiskie.service & #for automounting usb drives
+#systemctl --user start redshift &
 
 #keyring stuff
 #systemctl --user status gnome-keyring.service &

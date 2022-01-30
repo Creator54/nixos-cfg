@@ -11,6 +11,7 @@
     ./fonts.nix
     ./mcfly.nix
     ./zathura.nix
+    #./redshift.nix
   ];
 
   home.packages = with pkgs; [
@@ -20,7 +21,7 @@
     capitaine-cursors kitty fortune file
     w3m gnome.nautilus qtcreator
     colorpicker smartmontools glances jq
-    youtube-dl ueberzug eva tree qbittorrent
+    youtube-dl eva ueberzug tree qbittorrent
     unzip picom cmus conky fd #faster find alternative
     inkscape okular gromit-mpx
     speedtest-cli electron progress
@@ -29,8 +30,9 @@
     jupyter zathura clipit nix-output-monitor
     dig ffmpeg pciutils nix-index #contains nix-locate
     entr googler imgp recode glow
-    papirus-maia-icon-theme fff acpi sxiv axel python3 groff #for ms macros to pdf
+    papirus-maia-icon-theme fff acpi sxiv axel python39 groff #for ms macros to pdf
     pandoc texlive.combined.scheme-small #for converting .md files to pdf
+    ddgr nodePackages.peerflix bluetooth_battery
   ];
   nixpkgs.config.allowUnfree = true;
 }
