@@ -32,7 +32,8 @@
     entr googler imgp recode glow
     papirus-maia-icon-theme fff acpi sxiv axel python39 groff #for ms macros to pdf
     pandoc texlive.combined.scheme-small #for converting .md files to pdf
-    ddgr nodePackages.peerflix bluetooth_battery
+    ddgr nodePackages.peerflix bluetooth_battery ytfzf
+    (kodi.withPackages (p: with p; [ inputstream-adaptive pvr-iptvsimple inputstreamhelper ])) #kodi with jiotv, last is for drm
   ];
   nixpkgs.config.allowUnfree = true;
 }
