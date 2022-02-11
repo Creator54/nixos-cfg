@@ -35,6 +35,7 @@
   hardware = {
     cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
     opengl = {
+      enable = true;
       driSupport32Bit = true;
       extraPackages = with pkgs; [
         vaapiIntel
@@ -87,8 +88,8 @@
     #memoryMax = 3072;
     memoryPercent = 50;
     numDevices = 1;
-    priority = 5;
+    priority = 5; #matters only when using multiple swap devices
   };
 
-  swapDevices = [ { device = "/swapfile"; size = 4096; } ];
+  #swapDevices = [ { device = "/swapfile"; size = 4096; } ];
 }
