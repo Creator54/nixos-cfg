@@ -1,17 +1,11 @@
 { config, pkgs, lib, ... }:
 
 {
-  nixpkgs.overlays = [
-    (import (builtins.fetchTarball {
-      url = https://github.com/creator54/neovim-nightly-overlay/archive/test.tar.gz;
-    }))
-  ];
-
   programs = {
     neovim = {
       enable = true;
-      #package = pkgs.neovim-nightly;
       vimAlias = true;
+      viAlias = true;
       extraConfig = ''
         " vim-fish
         syntax enable
