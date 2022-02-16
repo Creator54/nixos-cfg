@@ -1,4 +1,9 @@
-{ pkgs, ... }: {
+{ pkgs, ... }: 
+
+let
+  servername = "creator54.me";
+in
+{
   imports = [
     ./hardware-configuration.nix
   ];
@@ -6,6 +11,7 @@
   environment.systemPackages = [ pkgs.home-manager ];
   boot.cleanTmpDir = true;
   zramSwap.enable = true;
+  
   networking = {
     hostName = "server";
     nameservers = ["8.8.4.4" "8.8.8.8" "1.1.1.1" "9.9.9.9"];
@@ -14,20 +20,22 @@
       allowedTCPPorts = [ 80 443 ];
     };
   };
+
   services = {
     openssh = {
       enable = true;
       passwordAuthentication = false;
       permitRootLogin = "no";
     };
+
     nginx = {
       enable = true;
       statusPage = true;
       recommendedOptimisation = true;
-      virtualHosts."creator54.me" = {
+      virtualHosts."${servername}" = {
         #enableACME = true;
         #forceSSL = true;
-        root = "/var/www/creator54.me";
+        root = "/var/www/${servername}";
       };
     };
   };
