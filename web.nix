@@ -18,6 +18,12 @@ in
         "blog.${host}" = {
           root = "${path}/blog";
         };
+        "shared.${host}" = {
+          root = "${path}/shared";
+          locations."/".extraConfig = ''
+            autoindex on;
+          '';#creating an index.html here will makeit render as default page here
+        };
       };
     };
   };
