@@ -13,7 +13,7 @@ in
         "${host}" = {
           #enableACME = true;
           #forceSSL = true;
-          root = "${path}/${host}";
+          root = "${path}/main/public";
         };
         "blog.${host}" = {
           root = "${path}/blog";
@@ -22,6 +22,8 @@ in
           root = "${path}/sharedby";
           locations."/".extraConfig = ''
             autoindex on;
+            autoindex_exact_size off;
+            autoindex_localtime on;
           '';#creating an index.html here will makeit render as default page here
         };
       };
