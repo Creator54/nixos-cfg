@@ -1,24 +1,19 @@
-{ pkgs, ... }: 
+{ pkgs, ... }:
 
-let
-  servername = "creator54.me";
-in
 {
   imports = [
+    ./web.nix
     ./hardware-configuration.nix
   ];
 
   environment.systemPackages = [ pkgs.home-manager ];
   boot.cleanTmpDir = true;
   zramSwap.enable = true;
-  
+
   networking = {
     hostName = "server";
     nameservers = ["8.8.4.4" "8.8.8.8" "1.1.1.1" "9.9.9.9"];
-    firewall = {
-      enable = true;
-      allowedTCPPorts = [ 80 443 ];
-    };
+    firewall.enable = true;
   };
 
   services = {
@@ -27,19 +22,7 @@ in
       passwordAuthentication = false;
       permitRootLogin = "no";
     };
-
-    nginx = {
-      enable = true;
-      statusPage = true;
-      recommendedOptimisation = true;
-      virtualHosts."${servername}" = {
-        #enableACME = true;
-        #forceSSL = true;
-        root = "/var/www/${servername}";
-      };
-    };
   };
-  #systemd.services.nginx.serviceConfig.ProtectHome = "read-only";
   users.users.creator54 = {
     shell = pkgs.fish;
     group = "users";
