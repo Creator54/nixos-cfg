@@ -18,8 +18,8 @@ in
         "blog.${host}" = {
           root = "${path}/blog";
         };
-        "shared.${host}" = {
-          root = "${path}/shared";
+        "sharedby.${host}" = {
+          root = "${path}/sharedby";
           locations."/".extraConfig = ''
             autoindex on;
           '';#creating an index.html here will makeit render as default page here
