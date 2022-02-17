@@ -1,6 +1,6 @@
 let
   host = "creator54.me";
-  path = "/var/www";
+  path = /home/creator54/website-stuff;
 in
 {
   networking.firewall.allowedTCPPorts = [ 80 443 ];
@@ -21,5 +21,5 @@ in
       };
     };
   };
-  #systemd.services.nginx.serviceConfig.ProtectHome = "read-only";
+  systemd.services.nginx.serviceConfig.ProtectHome = "read-only";
 }
