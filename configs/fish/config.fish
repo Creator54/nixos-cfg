@@ -33,6 +33,19 @@ function cmd
   $argv
 end
 
+function build
+  set path "/home/creator54/website-stuff"
+  if [ $PWD = "$path/main" ] 
+    zola build
+  else if [ $PWD = "$path/blog" ]
+    nix-shell --run "bundle exec jekyll build"
+  else
+    echo "Wrong directory !"\n
+    echo "Only meant for $path/main & $path/blog !"
+  end
+  sudo nixos-rebuild switch
+end
+
 function i
   if [ $argv[1] = "-l" ];or [ $argv[1] = "-latest" ]
     echo "Channel: Creator54/nixpkgs"
