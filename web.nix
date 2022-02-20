@@ -8,7 +8,10 @@ in
     nginx = {
       enable = true;
       statusPage = true;
+      recommendedTlsSettings = true;
+      recommendedGzipSettings = true;
       recommendedOptimisation = true;
+      recommendedProxySettings = true;
       virtualHosts = {
         "${host}" = {
           #enableACME = true;
@@ -16,7 +19,10 @@ in
           root = "${path}/main/public";
         };
         "blog.${host}" = {
-          root = "${path}/blog";
+          root = "${path}/blog/_site/";
+        };
+        "search.${host}" = {
+          locations."/".proxyPass = "http://localhost:5000";
         };
         "sharedby.${host}" = {
           root = "${path}/sharedby";
