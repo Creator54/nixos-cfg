@@ -1,7 +1,18 @@
 { config, pkgs, libs, ... }:
+let
+  dmenu = pkgs.dmenu.overrideAttrs (old: { #custom name also works + prev instead of old works
+    version = "5.0";
+    src = pkgs.fetchFromGitHub {
+      owner = "creator54";
+      repo = "dmenu";
+      rev = "main";
+      sha256 = "1d99kp8msdnbh4rwbccgw0z1nq7lcvr0s4ddm5djsrmhd2g1hkv7";
+    };
+  });
+in
 {
   home.packages = with pkgs;[
-    feh rofi
+    feh rofi dmenu
     networkmanagerapplet
     flameshot
     xorg.xbacklight
