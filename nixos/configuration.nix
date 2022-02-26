@@ -8,11 +8,11 @@
       ./sys/services.nix
       ./sys/flatpak.nix
       ./sys/bt.nix
-      ./sys/samba.nix
       ./sys/hosts.nix
       ./sys/resolved-hosts.nix
       ./sys/docker.nix
       ./sys/plymouth.nix
+      #./sys/samba.nix
       #./sys/nvidia.nix
       #./sys/silent_boot.nix
       #./vm-configs/virt-manager.nix
