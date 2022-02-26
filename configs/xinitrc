@@ -1,39 +1,28 @@
-#alsactl restore
 systemctl --user start udiskie.service & #for automounting usb drives
-#systemctl --user start redshift &
-
-#keyring stuff
-#systemctl --user status gnome-keyring.service &
-#mkdir -p "$HOME"/.local/share/keyrings &
-#source /etc/X11/xinit/xinitrc.d/50-systemd-user.sh & 
-
 nm-applet &
 nmcli con up CoudBe & #try connecting to Coudbe if up
-#albert & #this increases ram consumption by 500+ Mib
 blueman-applet &
-#bluetoothctl connect 20:20:10:21:A4:8C & #try connecting on login, fails as blutooth is blocked on startup,check rfkil
 xrdb -load ~/.Xresources &
 numlockx on &
 feh --bg-fill --randomize ~/wallpapers/
-xset -b & 
+xset -b &
 flameshot &
 picom -CG --experimental-backends &
 pkill clipit; clipit -n &
-#pkill conky;conky -c ~/.config/conky/minimalismRC &
-#pkill glava;glava --dekstop &
 
 betterlockscreen -l blur --time-format "%I:%M %p"
 
 if which xfce4-session; then
-	exec startxfce4
+  exec startxfce4
 elif which awesome; then
-	exec awesome
+  exec awesome
 elif which bspwm; then
-	exec bspwm
+  exec bspwm
 elif which sway;then
-	sway --my-next-gpu-wont-be-nvidia
+  sway --my-next-gpu-wont-be-nvidia
+elif which dwm;then
+  exec dwmblocks &
+  exec dwm
 else
-	path="~/.config/nixpkgs/wm/wm-configs/dwm"
-	exec $path/dwmblocks/dwmblocks &
-	exec $path/dwm
+  echo "No WM's Found !!"
 fi

@@ -2,8 +2,9 @@
 
 {
   imports = [
+    ./wm/dwm.nix
+    ./wm/wm-pkgs.nix
     ./pkgs/general.nix
-    ./wm/wm-pkgs.nix #if none specified defaults to dwm
   ];
 
   home = {
