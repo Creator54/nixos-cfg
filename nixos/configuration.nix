@@ -22,7 +22,7 @@
   boot = {
     loader = {
       systemd-boot.enable = true;
-      timeout = 0;
+      timeout = 1; #things can get messy anytime
       efi.canTouchEfiVariables = true;
     };
     cleanTmpDir = true;
