@@ -14,14 +14,6 @@ let
       xorg.libXinerama
     ];
   });
-  #dwmblocks = pkgs.dwmblocks.overrideAttrs (old: {
-  #  src = pkgs.fetchFromGitHub {
-  #    owner = "creator54";
-  #    repo = "dwmblocks";
-  #    rev = "main";
-  #    sha256 = "1mzg0d8pxp8465vs6njzhj8mkicjry95vs6lrlch7zpqw9sjsp0y";
-  #  };
-  #});
   dwmblocks = pkgs.dwmblocks.overrideAttrs (old: {
     src = pkgs.fetchFromGitHub {
       owner = "creator54";
