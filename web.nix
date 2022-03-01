@@ -14,8 +14,8 @@ in
       recommendedProxySettings = true;
       virtualHosts = {
         "${host}" = {
-          #enableACME = true;
-          #forceSSL = true;
+          enableACME = true;
+          forceSSL = true;
           root = "${path}/main/public";
           locations."/resume" = {
             root = "${path}";
@@ -25,11 +25,30 @@ in
             '';
           };
         };
-        "blog.${host}".root = "${path}/blog/_site/";
-        "search.${host}".locations."/".proxyPass = "http://localhost:5000";
-        "sharedby.${host}".locations."/".proxyPass = "http://localhost:8080";
+        "blog.${host}" = {
+          enableACME = true;
+          forceSSL = true;
+          root = "${path}/blog/_site/";
+        };
+        "search.${host}" = {
+          enableACME = true;
+          forceSSL = true;
+          locations."/".proxyPass = "http://localhost:5000";
+        };
+        "sharedby.${host}" = {
+          enableACME = true;
+          forceSSL = true;
+          locations."/".proxyPass = "http://localhost:8080";
+        };
       };
     };
   };
+
+  security.acme = {
+    acceptTerms = true;
+    certs."${host}".webroot = "/var/lib/acme/acme-challenge";
+    email = "hi.creator54@gmail.com";
+  };
+
   systemd.services.nginx.serviceConfig.ProtectHome = "read-only";
 }
