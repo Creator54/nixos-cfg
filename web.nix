@@ -17,6 +17,13 @@ in
           #enableACME = true;
           #forceSSL = true;
           root = "${path}/main/public";
+          locations."/resume" = {
+            root = "${path}";
+            extraConfig = ''
+              rewrite ^ /resume.pdf break;
+              add_header Content-Disposition 'inline';
+            '';
+          };
         };
         "blog.${host}".root = "${path}/blog/_site/";
         "search.${host}".locations."/".proxyPass = "http://localhost:5000";
