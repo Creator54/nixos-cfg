@@ -18,20 +18,9 @@ in
           #forceSSL = true;
           root = "${path}/main/public";
         };
-        "blog.${host}" = {
-          root = "${path}/blog/_site/";
-        };
-        "search.${host}" = {
-          locations."/".proxyPass = "http://localhost:5000";
-        };
-        "sharedby.${host}" = {
-          root = "${path}/sharedby";
-          locations."/".extraConfig = ''
-            autoindex on;
-            autoindex_exact_size off;
-            autoindex_localtime on;
-          '';#creating an index.html here will makeit render as default page here
-        };
+        "blog.${host}".root = "${path}/blog/_site/";
+        "search.${host}".locations."/".proxyPass = "http://localhost:5000";
+        "sharedby.${host}".locations."/".proxyPass = "http://localhost:8080";
       };
     };
   };
