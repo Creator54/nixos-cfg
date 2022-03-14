@@ -17,6 +17,14 @@ in
           enableACME = true;
           forceSSL = true;
           root = "${path}/main/public";
+          locations = {
+            "/blog".extraConfig = '' rewrite ^/(.*)$ https://blog.${host} redirect; '';
+            "/blog/".extraConfig = '' rewrite ^/blog/(.*)$ https://blog.${host}/$1 redirect;'';
+          };
+        };
+        "documents.${host}" = {
+          enableACME = true;
+          forceSSL = true;
           locations."/resume" = {
             root = "${path}";
             extraConfig = ''
