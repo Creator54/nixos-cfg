@@ -18,6 +18,12 @@ in
           forceSSL = true;
           root = "${path}/main/public";
           locations = {
+            "/logs" = {
+              root = "${path}";
+              extraConfig = ''
+                autoindex on;
+              '';
+            };
             "/blog".extraConfig = '' rewrite ^/(.*)$ https://blog.${host} redirect; '';
             "/blog/".extraConfig = '' rewrite ^/blog/(.*)$ https://blog.${host}/$1 redirect;'';
           };
