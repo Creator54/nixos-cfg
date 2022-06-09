@@ -116,8 +116,10 @@
       :}}}
 
       #for opening preview in nnn
-       allow_remote_control yes
+      allow_remote_control yes
 
+      # 0 disables it; -1 enables it
+      confirm_os_window_close 0
     ";
   };
 }
