@@ -12,7 +12,7 @@ let
 in
 {
   home.packages = with pkgs;[
-    feh rofi dmenu
+    feh rofi dmenu betterlockscreen
     networkmanagerapplet
     flameshot
     xorg.xbacklight
@@ -24,11 +24,6 @@ in
   ];
 
   services = {
-    betterlockscreen = {
-      enable = true;
-      arguments = [ "blur" ];
-      inactiveInterval = 5;#minutes
-    };
     udiskie = {
       enable = true;
       notify = true;
