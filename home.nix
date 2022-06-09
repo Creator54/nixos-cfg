@@ -5,6 +5,7 @@
     ./wm/dwm.nix
     ./wm/wm-pkgs.nix
     ./pkgs/general.nix
+    ./pkgs/firefox.nix
   ];
 
   home = {
