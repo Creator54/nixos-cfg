@@ -22,7 +22,7 @@ elif which sway;then
   sway --my-next-gpu-wont-be-nvidia
 elif which dwm;then
   exec dwmblocks &
-  exec dwm
+  exec dbus-launch dwm #dbus-launch needed for notifications to work
 else
   echo "No WM's Found !!"
 fi
