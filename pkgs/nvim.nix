@@ -55,12 +55,6 @@
         "remove trailing spaces
         nnoremap <leader>t :%s/\s\+$//e <CR> :w <CR>
 
-        " Find files using Telescope command-line sugar.
-        nnoremap <leader>f <cmd>Telescope find_files<cr>
-        nnoremap <leader>g <cmd>Telescope live_grep<cr>
-        nnoremap <leader>b <cmd>Telescope buffers<cr>
-        nnoremap <leader>h <cmd>Telescope help_tags<cr>
-
         " Call compile
         " Open the PDF from /tmp/
         function! Preview()
@@ -114,10 +108,6 @@
         };
 
       in [
-        popup-nvim    #all 3 as per telescope-nvim
-        plenary-nvim
-        telescope-nvim
-
         vim-javascript
         vim-fish
         vim-pad #for taking notes in vim
