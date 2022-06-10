@@ -47,8 +47,6 @@
     pulseaudio = {
       enable = true;
       support32Bit = true;
-      #Enabling extra codecs
-      extraModules = [ pkgs.pulseaudio-modules-bt ];
       package = pkgs.pulseaudioFull;
       extraConfig = "load-module module-switch-on-connect";
     };
