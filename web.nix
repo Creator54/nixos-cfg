@@ -61,7 +61,7 @@ in
   security.acme = {
     acceptTerms = true;
     certs."${host}".webroot = "/var/lib/acme/acme-challenge";
-    email = "hi.creator54@gmail.com";
+    defaults.email = "hi.creator54@gmail.com";
   };
 
   systemd.services.nginx.serviceConfig.ProtectHome = "read-only";

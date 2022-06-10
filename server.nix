@@ -60,4 +60,5 @@
     priority = 5; #matters only when using multiple swap devices
   };
   swapDevices = [ { device = "/swapfile"; size = 4096; } ];
+  system.stateVersion = "22.05";
 }
