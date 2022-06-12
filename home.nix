@@ -11,7 +11,7 @@
   home = {
     username = "creator54";
     homeDirectory = "/home/creator54";
-    stateVersion = "21.05"; #do not touch
+    stateVersion = "22.05"; #do not touch
 
     file = {
       ".config/gromit-mpx.ini".source                       = ./configs/gromit-mpx.ini;
