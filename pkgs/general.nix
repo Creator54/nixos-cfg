@@ -5,6 +5,7 @@
     ./git.nix
     ./bat.nix
     ./mpv.nix
+    ./man.nix
     ./nvim.nix
     #./htop.nix
     ./kitty.nix
