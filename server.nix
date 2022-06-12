@@ -2,8 +2,6 @@
 
 {
   imports = [
-    ./web.nix
-    ./docker.nix
     ./hardware-configuration.nix
   ];
 
