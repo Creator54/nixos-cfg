@@ -35,7 +35,12 @@
     nameservers = ["8.8.4.4" "8.8.8.8" "1.1.1.1" "9.9.9.9"]; #without this will have to add nameserves to /etc/resolv.conf , internet fails without this on chroot, should be declared since not using dhcp
   };
 
-  environment.systemPackages = [ pkgs.home-manager ];
+  documentation.man.generateCaches = true; #https://discourse.nixos.org/t/fish-shell-and-manual-page-completion-nixos-home-manager/15661/3
+
+  environment = {
+    systemPackages = [ pkgs.home-manager ];
+    pathsToLink = [ "/share/fish" ];
+  };
   time.timeZone = "Asia/Kolkata";
 
   # Select internationalisation properties.
