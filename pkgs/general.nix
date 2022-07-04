@@ -26,7 +26,7 @@
     inkscape okular gromit-mpx
     speedtest-cli electron progress
     anydesk lm_sensors screenkey
-    efibootmgr duf gdu xclip
+    efibootmgr duf gdu xclip direnv
     jupyter zathura clipit nix-output-monitor
     dig ffmpeg pciutils nix-index #contains nix-locate
     entr googler imgp recode glow
