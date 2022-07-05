@@ -6,11 +6,10 @@ xrdb -load ~/.Xresources &
 numlockx on &
 feh --bg-fill --randomize ~/wallpapers/
 xset -b &
-flameshot &
 picom -CG --experimental-backends &
 pkill clipit; clipit -n &
 
-betterlockscreen -l blur --time-format "%I:%M %p"
+#betterlockscreen -l blur --time-format "%I:%M %p"
 
 if which xfce4-session; then
   exec startxfce4
