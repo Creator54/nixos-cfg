@@ -10,6 +10,7 @@
     ./kitty.nix
     ./fonts.nix
     ./mcfly.nix
+    ./ani-cli.nix
     ./zathura.nix
     #./redshift.nix
   ];
