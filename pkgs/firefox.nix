@@ -11,8 +11,20 @@
     firefox = {
       enable = true;
       extensions = with pkgs.nur.repos.rycee.firefox-addons; [
+        stylus
+        noscript
+        wappalyzer
+        darkreader
+        sponsorblock
         ublock-origin
+        https-everywhere
+        facebook-container
         bypass-paywalls-clean
+        return-youtube-dislikes
+        multi-account-containers
+        user-agent-string-switcher
+        terms-of-service-didnt-read
+        duckduckgo-privacy-essentials
       ];
       profiles.default = {
         id = 0;
@@ -24,6 +36,8 @@
           "browser.startup.homepage" = builtins.fetchurl https://raw.githubusercontent.com/Creator54/tilde/main/index.html;
           "browser.search.region" = "IN";
           "browser.search.isUS" = false;
+          "browser.download.animateNotifications" = false;
+          "security.dialog_enable_delay" = 0;
           "distribution.searchplugins.defaultLocale" = "en-IN";
           "general.useragent.locale" = "en-IN";
           "browser.bookmarks.showMobileBookmarks" = true;
