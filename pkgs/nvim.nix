@@ -7,6 +7,18 @@
       vimAlias = true;
       viAlias = true;
       extraConfig = ''
+        " enable whitespace highlight
+        let g:better_whitespace_ctermcolor='red'
+        let g:better_whitespace_enabled=1
+        let g:strip_whitespace_on_save=1
+
+        " open a new tab
+        nnoremap <C-n>     :tabnew<CR>
+
+        " move to the previous/next tabpage.
+        nnoremap <C-Tab> :tabn<CR>
+        nnoremap <C-S-Tab> :tabp<CR>
+
         " vim-fish
         syntax enable
         filetype plugin indent on
@@ -107,7 +119,18 @@
           };
         };
 
+        vim-better-whitespace = pkgs.vimUtils.buildVimPlugin {
+          name = "vim-better-whitespace";
+          src = pkgs.fetchFromGitHub {
+            owner = "ntpeters";
+            repo = "vim-better-whitespace";
+            rev = "1b22dc57a2751c7afbc6025a7da39b7c22db635d";
+            sha256 = "sha256-OZ25no2pZQfyb1Yo00rE2XgKop+xutloRAoE8Lfqv4M=";
+          };
+        };
+
       in [
+        vim-better-whitespace
         vim-javascript
         vim-fish
         vim-pad #for taking notes in vim
