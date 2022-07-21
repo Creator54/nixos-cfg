@@ -128,8 +128,18 @@
             sha256 = "sha256-OZ25no2pZQfyb1Yo00rE2XgKop+xutloRAoE8Lfqv4M=";
           };
         };
+        eyeliner = pkgs.vimUtils.buildVimPlugin {
+          name = "eyeliner.nvim";
+          src = pkgs.fetchFromGitHub {
+            owner = "jinh0";
+            repo = "eyeliner.nvim";
+            rev = "main";
+            sha256 = "sha256-CSwtioJh7PrZz51+tIqLwG3xkPsJdgAVwvp2bnguuOw=";
+          };
+        };
 
       in [
+        eyeliner
         vim-better-whitespace
         vim-javascript
         vim-fish
