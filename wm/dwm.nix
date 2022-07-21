@@ -1,11 +1,12 @@
 { pkgs, lib, ... }:
 let
   dwm = pkgs.dwm.overrideAttrs (old: {
+    version = "6.2";
     src = pkgs.fetchFromGitHub {
       owner = "creator54";
       repo = "dwm";
-      rev = "main";
-      sha256 = "1m74m28abg0348brn6c1sj7zwdbxv5bd3997am80sn56s6ipvyds";
+      rev = "b1";
+      sha256 = "sha256-uvl9o9GmWA1QVSel0VbZfTX+j9SBGZsXIgO8pZCo5NQ=";
     };
     nativeBuildInputs = with pkgs; [ #writing once works for both currently, sort of bug and feature
       xorg.libX11.dev
