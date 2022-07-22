@@ -1,5 +1,5 @@
 systemctl --user start udiskie.service & #for automounting usb drives
-nm-applet &
+dbus-launch nm-applet &
 nmcli con up CoudBe & #try connecting to Coudbe if up
 blueman-applet &
 xrdb -load ~/.Xresources &
