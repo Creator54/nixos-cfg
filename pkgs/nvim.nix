@@ -1,12 +1,38 @@
 { config, pkgs, lib, ... }:
 
 {
+  home.packages = [ pkgs.ccls ];
   programs = {
     neovim = {
       enable = true;
       vimAlias = true;
       viAlias = true;
+      coc = {
+        enable = true;
+        settings = {
+          "suggest.noselect" = true;
+          "suggest.enablePreview" = true;
+          "suggest.enablePreselect" = false;
+          "suggest.disableKind" = true;
+          "languageserver" = {
+            "ccls" = {
+              "command" = "ccls";
+              "filetypes" = ["c" "cc" "cpp" "c++" "objc" "objcpp"];
+              "rootPatterns" = [".ccls" "compile_commands.json" ".git/" ".hg/"];
+              "initializationOptions" = {
+                "cache" = {
+                  "directory" = "/tmp/ccls";
+                };
+              };
+            };
+          };
+        };
+      };
       extraConfig = ''
+        "eyeliner stuff
+        "highlight EyelinerPrimary guifg=#000000 gui=underline,bold "doesn't work as of now
+        "highlight EyelinerSecondary guifg=#ffffff gui=underline
+
         " enable whitespace highlight
         let g:better_whitespace_ctermcolor='red'
         let g:better_whitespace_enabled=1
