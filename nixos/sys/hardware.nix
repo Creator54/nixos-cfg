@@ -28,7 +28,7 @@
       "i915.enable_fbc=1"
       "i915.enable_psr=2"
       "intel_pstate=disable"
-      "resume_offset=1409024" #get it via sudo filefrag -v /swapfile | awk '{if($1=="0:"){print $4}}'
+      "resume_offset=3858432" #get it via sudo filefrag -v /swapfile | awk '{if($1=="0:"){print $4}}'
     ];
   };
 
@@ -80,14 +80,14 @@
    #   fsType = "ext4";
    # };
   };
-  zramSwap = {
-    enable = true;
-    algorithm = "zstd";
-    #memoryMax = 3072;
-    memoryPercent = 50;
-    numDevices = 1;
-    priority = 5; #matters only when using multiple swap devices
-  };
+  #zramSwap = {
+  #  enable = true;
+  #  algorithm = "zstd";
+  #  #memoryMax = 3072;
+  #  memoryPercent = 50;
+  #  numDevices = 1;
+  #  priority = 5; #matters only when using multiple swap devices
+  #};
 
-  #swapDevices = [ { device = "/swapfile"; size = 4096; } ];
+  swapDevices = [ { device = "/swapfile"; size = 4096; } ];
 }
