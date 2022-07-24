@@ -3,14 +3,14 @@
 {
   imports =
     [
-      ./kernel/xanmod.nix #not including reverts kernel to one included in nixos revision
+      ./kernel/zen.nix #not including reverts kernel to one included in nixos revision
       ./sys/hardware.nix
       ./sys/services.nix
-      ./sys/flatpak.nix
+      #./sys/flatpak.nix
       ./sys/bt.nix
       ./sys/hosts.nix
       ./sys/resolved-hosts.nix
-      ./sys/docker.nix
+      #./sys/docker.nix
       ./sys/plymouth.nix
       #./sys/samba.nix
       #./sys/nvidia.nix
@@ -30,6 +30,14 @@
 
   # networking
   networking = {
+    #wireless = { #https://nixos.org/manual/nixos/stable/#sec-wireless
+    #  enable = true;
+    #  networks = {
+    #    CoudBe = {
+    #      pskRaw = "d09b0e129ef70345504752f870e89ba6a831971942cbd76f8394704a2894076b";
+    #    };
+    #  };
+    #};
     networkmanager.enable = true;
     hostName = "CosPi";
     nameservers = ["8.8.4.4" "8.8.8.8" "1.1.1.1" "9.9.9.9"]; #without this will have to add nameserves to /etc/resolv.conf , internet fails without this on chroot, should be declared since not using dhcp
@@ -53,12 +61,10 @@
   #};
 
   # useraccount & properties
-  users = {
-    users.creator54 = {
-      isNormalUser = true;
-      extraGroups = [ "power" "storage" "wheel" "audio" "video" "networkmanager" ];
-      shell = pkgs.fish;
-    };
+  users.users.creator54 = {
+    isNormalUser = true;
+    extraGroups = [ "power" "storage" "wheel" "audio" "video" "networkmanager" ];
+    shell = pkgs.fish;
   };
 
   security.allowSimultaneousMultithreading = true;
