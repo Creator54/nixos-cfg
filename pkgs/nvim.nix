@@ -29,9 +29,9 @@
         };
       };
       extraConfig = ''
-        "eyeliner stuff
-        "highlight EyelinerPrimary guifg=#000000 gui=underline,bold "doesn't work as of now
-        "highlight EyelinerSecondary guifg=#ffffff gui=underline
+        "quick-scppe config
+        " Trigger a highlight only when pressing f and F.
+        "let g:qs_highlight_on_keys = ['f', 'F']
 
         " enable whitespace highlight
         let g:better_whitespace_ctermcolor='red'
@@ -154,18 +154,18 @@
             sha256 = "sha256-OZ25no2pZQfyb1Yo00rE2XgKop+xutloRAoE8Lfqv4M=";
           };
         };
-        eyeliner = pkgs.vimUtils.buildVimPlugin {
-          name = "eyeliner.nvim";
+        quick-scope = pkgs.vimUtils.buildVimPlugin {
+          name = "quick-scope";
           src = pkgs.fetchFromGitHub {
-            owner = "jinh0";
-            repo = "eyeliner.nvim";
-            rev = "main";
-            sha256 = "sha256-CSwtioJh7PrZz51+tIqLwG3xkPsJdgAVwvp2bnguuOw=";
+            owner = "unblevable";
+            repo = "quick-scope";
+            rev = "master";
+            sha256 = "sha256-MfqxI8CXmVXn3ZAyZqCufgZ690GTuy6PMgKTPVBuNm4=";
           };
         };
 
       in [
-        eyeliner
+        quick-scope
         vim-better-whitespace
         vim-javascript
         vim-fish
