@@ -4,6 +4,7 @@
   imports = [
     ./web.nix
     ./docker.nix
+    ./nextcloud.nix
     ./hardware-configuration.nix
   ];
 
