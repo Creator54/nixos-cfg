@@ -28,31 +28,31 @@ in
             "/blog/".extraConfig = '' rewrite ^/blog/(.*)$ https://blog.${host}/$1 redirect;'';
           };
         };
-        "documents.${host}" = {
+        "docs.${host}" = {
           enableACME = true;
           forceSSL = true;
-          locations."/resume" = {
-            root = "${path}";
-            extraConfig = ''
-              rewrite ^ /resume.pdf break;
-              add_header Content-Disposition 'inline';
-            '';
+          locations ={
+            "/resume" = {
+              root = "${path}";
+              extraConfig = ''
+                rewrite ^ /resume.pdf break;
+                add_header Content-Disposition 'inline';
+              '';
+            };
+            "/resume-01" = {
+              root = "${path}";
+              extraConfig = ''
+                rewrite ^ /resume-01.pdf break;
+                add_header Content-Disposition 'inline';
+              '';
+            };
+
           };
         };
         "blog.${host}" = {
           enableACME = true;
           forceSSL = true;
           root = "${path}/blog/_site/";
-        };
-        "search.${host}" = {
-          enableACME = true;
-          forceSSL = true;
-          locations."/".proxyPass = "http://localhost:5000";
-        };
-        "sharedby.${host}" = {
-          enableACME = true;
-          forceSSL = true;
-          locations."/".proxyPass = "http://localhost:8080";
         };
       };
     };
