@@ -143,3 +143,4 @@ function __fish_command_not_found_handler --on-event fish_command_not_found
   set index (random 1 6)
   printf '%s\n' $exit_string[$index]
 end
+direnv hook fish | source
