@@ -13,6 +13,7 @@
     file = {
       ".config/fish".source = ./configs/fish;
       ".config/htop".source = ./configs/htop;
+      ".tmux.conf".source = ./configs/tmux.conf;
     };
   };
 }
