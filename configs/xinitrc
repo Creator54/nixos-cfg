@@ -11,6 +11,16 @@ pkill clipit; clipit -n &
 
 #betterlockscreen -l blur --time-format "%I:%M %p"
 
+#Setting up the user's D-Bus Daemon from "https://nixos.wiki/wiki/Using_X_without_a_Display_Manager"
+if test -z "$DBUS_SESSION_BUS_ADDRESS"; then
+  eval $(dbus-launch --exit-with-session --sh-syntax)
+fi
+systemctl --user import-environment DISPLAY XAUTHORITY
+
+if command -v dbus-update-activation-environment >/dev/null 2>&1; then
+  dbus-update-activation-environment DISPLAY XAUTHORITY
+fi
+
 if which xfce4-session; then
   exec startxfce4
 elif which awesome; then
