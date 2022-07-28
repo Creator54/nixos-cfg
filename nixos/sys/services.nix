@@ -7,7 +7,7 @@
       enable = true;
       layout = "us";
       libinput.enable = true; 				# touchpad support generally enabled by most display managers
-      displayManager.startx.enable = true;
+      displayManager.sx.enable = true;  #minimal replacement for startx
       videoDrivers = [ "intel" ];
       deviceSection = ''
         Option "TearFree" "true"
