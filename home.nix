@@ -10,8 +10,10 @@
 
   home = {
     username = "creator54";
-    homeDirectory = "/home/creator54";
     stateVersion = "22.05"; #do not touch
+    homeDirectory = "/home/creator54";
+    enableNixpkgsReleaseCheck = true;
+    sessionPath = [ "$HOME/.node_modules/bin" ];
 
     file = {
       ".config/gromit-mpx.ini".source                       = ./configs/gromit-mpx.ini;
