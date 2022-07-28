@@ -16,7 +16,7 @@
   ];
 
   home.packages = with pkgs; [
-    wget htop git github-cli nnn obs-studio
+    wget htop git github-cli nnn obs-studio openssl
     aria2 nodejs meld libclang gcc
     gnumake fzf vlc tdesktop ncftp
     capitaine-cursors kitty fortune file
