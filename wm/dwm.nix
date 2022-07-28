@@ -19,8 +19,8 @@ let
     src = pkgs.fetchFromGitHub {
       owner = "creator54";
       repo = "dwmblocks";
-      rev = "d2c93aaa1f49e36d62586ac067340bf4b026b115";
-      sha256 = "0y7gd9gdivzszlqxfpbklcs17lbn0vipk8cfb8kgxs6xgqdl0fkv";
+      rev = "master";
+      sha256 = "sha256-ezpAG37d6P4mWo6heeMGdtETNKNzXdcx/frv2F5q73g=";
     };
   });
 in
