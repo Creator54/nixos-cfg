@@ -36,6 +36,7 @@
     cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
     opengl = {
       enable = true;
+      driSupport = true; #hardware acceleration for the Mesa implementation of OpenGL
       driSupport32Bit = true;
       extraPackages = with pkgs; [
         vaapiIntel
