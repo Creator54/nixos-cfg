@@ -2,8 +2,18 @@
 
 let
   nextcloudhost = "cloud.creator54.me";
+  unstableTarball = fetchTarball https://releases.nixos.org/nixpkgs/nixpkgs-22.11pre395741.1a1bd86756c/nixexprs.tar.xz;
 in
 {
+  nixpkgs.config = {
+    allowUnfree = true;
+    packageOverrides = pkgs: {
+      unstable = import unstableTarball {
+        config = config.nixpkgs.config;
+      };
+    };
+  };
+
   services.nginx = {
     # Only allow PFS-enabled ciphers with AES256
     sslCiphers = "AES256+EECDH:AES256+EDH:!aNULL";
@@ -22,6 +32,7 @@ in
   # Actual Nextcloud Config
   services.nextcloud = {
     enable = true;
+    package = pkgs.unstable.nextcloud24;
     enableImagemagick = true;
     hostName = "${nextcloudhost}";
     # Enable built-in virtual host management
