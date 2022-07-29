@@ -15,9 +15,6 @@ in
   };
 
   services.nginx = {
-    # Only allow PFS-enabled ciphers with AES256
-    sslCiphers = "AES256+EECDH:AES256+EDH:!aNULL";
-
   # Setup Nextcloud virtual host to listen on ports
     virtualHosts = {
       "${nextcloudhost}" = {

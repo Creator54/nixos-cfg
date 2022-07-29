@@ -12,6 +12,9 @@ in
       recommendedGzipSettings = true;
       recommendedOptimisation = true;
       recommendedProxySettings = true;
+      # Only allow PFS-enabled ciphers with AES256
+      sslCiphers = "AES256+EECDH:AES256+EDH:!aNULL";
+
       virtualHosts = {
         "${host}" = {
           enableACME = true;
