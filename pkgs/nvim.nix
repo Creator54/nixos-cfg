@@ -113,10 +113,6 @@
         };
 
       in [
-        popup-nvim    #all 3 as per telescope-nvim
-        plenary-nvim
-        telescope-nvim
-
         vim-javascript
         vim-fish
         vim-pad #for taking notes in vim

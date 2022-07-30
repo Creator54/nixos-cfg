@@ -3,7 +3,6 @@
 {
   imports = [
     ./web.nix
-    ./docker.nix
     ./nextcloud.nix
     ./hardware-configuration.nix
   ];
@@ -23,6 +22,7 @@
       passwordAuthentication = false;
       permitRootLogin = "no";
     };
+    journald.extraConfig = "SystemMaxUse=100M";
   };
 
   nix = {

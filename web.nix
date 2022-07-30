@@ -57,6 +57,11 @@ in
           forceSSL = true;
           root = "${path}/blog/_site/";
         };
+        "api.${host}" = {
+          enableACME = true;
+          forceSSL = true;
+          locations."/".proxyPass = "http://localhost:8080";
+        };
       };
     };
   };
