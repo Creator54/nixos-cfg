@@ -1,13 +1,7 @@
 { pkgs, lib, ... }:
 let
   dwm = pkgs.dwm.overrideAttrs (old: {
-    version = "6.2";
-    src = pkgs.fetchFromGitHub {
-      owner = "creator54";
-      repo = "dwm";
-      rev = "b1";
-      sha256 = "sha256-uvl9o9GmWA1QVSel0VbZfTX+j9SBGZsXIgO8pZCo5NQ=";
-    };
+    src = builtins.fetchTarball https://github.com/creator54/dwm/tarball/main;
     nativeBuildInputs = with pkgs; [ #writing once works for both currently, sort of bug and feature
       xorg.libX11.dev
       xorg.libXft
@@ -16,12 +10,7 @@ let
     ];
   });
   dwmblocks = pkgs.dwmblocks.overrideAttrs (old: {
-    src = pkgs.fetchFromGitHub {
-      owner = "creator54";
-      repo = "dwmblocks";
-      rev = "master";
-      sha256 = "sha256-ezpAG37d6P4mWo6heeMGdtETNKNzXdcx/frv2F5q73g=";
-    };
+    src = builtins.fetchTarball https://github.com/creator54/dwmblocks/tarball/master;
   });
 in
 {
