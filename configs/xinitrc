@@ -8,6 +8,7 @@ feh --bg-fill --randomize ~/wallpapers/
 xset -b &
 picom -CG --experimental-backends &
 pkill clipit; clipit -n &
+kdeconnect-indicator &
 
 #betterlockscreen -l blur --time-format "%I:%M %p"
 
