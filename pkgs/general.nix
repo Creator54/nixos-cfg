@@ -1,5 +1,8 @@
 { config, pkgs, lib, ... }:
-
+let
+  unstable = import (builtins.fetchTarball https://github.com/nixos/nixpkgs/tarball/nixpkgs-unstable)
+  { config = config.nixpkgs.config; };
+in
 {
   imports = [
     ./git.nix
@@ -15,11 +18,16 @@
     #./redshift.nix
   ];
 
-  home.packages = with pkgs; [
-    wget htop git github-cli nnn obs-studio openssl
+  services.kdeconnect = {
+    enable = true;
+    indicator = true;
+  };
+
+  home.packages = with unstable; [
+    wget htop github-cli nnn obs-studio openssl xplr
     aria2 nodejs meld libclang gcc
     gnumake fzf vlc tdesktop ncftp
-    capitaine-cursors kitty fortune file
+    capitaine-cursors fortune file
     w3m gnome.nautilus qtcreator
     colorpicker smartmontools glances jq
     youtube-dl eva ueberzug tree qbittorrent
@@ -28,7 +36,7 @@
     speedtest-cli electron progress
     anydesk lm_sensors screenkey
     efibootmgr duf gdu xclip direnv
-    jupyter zathura clipit nix-output-monitor
+    jupyter clipit nix-output-monitor
     dig ffmpeg pciutils nix-index #contains nix-locate
     entr googler imgp recode glow
     papirus-maia-icon-theme fff acpi sxiv axel python39 groff #for ms macros to pdf

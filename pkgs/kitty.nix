@@ -42,7 +42,7 @@
       # Window settings
       : Window layout {{{
        window_border_width 0
-       draw_minimal_borders yes
+       draw_minimal_borders no
        window_padding_width 30
        placement_strategy center
        active_border_color #00ff00
@@ -59,8 +59,8 @@
 
       #Color Settings (Gruvbox)
       : Color scheme {{{
-       background_opacity .95
-       dynamic_background_opacity yes
+       background_opacity 1
+       dynamic_background_opacity no
 
        background #262626
        foreground #ebdbb2
@@ -68,10 +68,10 @@
        selection_background #d4be98
        selection_foreground #1d2021
 
-       cursor #a89984
+       cursor #a89985
        cursor_text_color background
 
-       active_tab_background #1d2021
+       active_tab_background #0E0E10
        active_tab_foreground #d4be98
        active_tab_font_style bold
        inactive_tab_background #1d2021
