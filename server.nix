@@ -3,6 +3,7 @@
 {
   imports = [
     ./web.nix
+    ./whoogle.nix
     ./nextcloud.nix
     ./hardware-configuration.nix
   ];
