@@ -13,7 +13,6 @@ in
     ./kitty.nix
     ./fonts.nix
     ./mcfly.nix
-    ./ani-cli.nix
     ./zathura.nix
     #./redshift.nix
   ];
@@ -24,6 +23,7 @@ in
   };
 
   home.packages = with unstable; [
+    vlang ani-cli
     wget htop github-cli nnn obs-studio openssl xplr
     aria2 nodejs meld libclang gcc
     gnumake fzf vlc tdesktop ncftp

@@ -1,4 +1,4 @@
-**Configuration System written mostly on Nix for building the O.S. and stuff the way I like/Use**
+# Making rm -rf ~/.* / pretty much useless 😅
 
 - Screenshots:
 
@@ -12,7 +12,7 @@
     > **Nvim**
     > ![Screenshot](./screenshots/screenshot-3.png)
 
-    > **Firefox** 
+    > **Firefox**
     > ![Screenshot](./screenshots/screenshot-4.png)
     > ![Screenshot](./screenshots/screenshot-5.png)
 
