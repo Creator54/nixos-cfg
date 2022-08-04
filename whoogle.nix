@@ -2,7 +2,7 @@
 
 let
   host = "creator54.me";
-  serverPort = "8080";
+  serverPort = "8050";
 in
 {
   virtualisation = {
