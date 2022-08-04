@@ -62,8 +62,19 @@ in
           forceSSL = true;
           locations."/".proxyPass = "http://localhost:8080";
         };
+        "ag.${host}" = {
+          enableACME = true;
+          forceSSL = true;
+          locations."/".proxyPass = "http://localhost:3001"; #first use 3000 to setup then change port here as per portal configuration.
+        };
       };
     };
+  };
+
+  services.adguardhome = {
+    enable = true;
+    port = 3000;
+    mutableSettings = true;
   };
 
   security.acme = {
