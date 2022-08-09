@@ -1,6 +1,5 @@
 let
-  host = "creator54.me";
-  path = /home/creator54/website-stuff;
+  config = (import ./userConfig.nix).userConfig; #if issues read sudo journalctl -u nginx
 in
 {
   networking.firewall.allowedTCPPorts = [ 80 443 ];
@@ -16,71 +15,52 @@ in
       sslCiphers = "AES256+EECDH:AES256+EDH:!aNULL";
 
       virtualHosts = {
-        "${host}" = {
+        "${config.hostName}" = {
           enableACME = true;
           forceSSL = true;
-          root = "${path}/main/public";
+          root = "${config.hostSrc}";
           locations = {
             "/logs" = {
-              root = "${path}";
+              root = "${config.path}";
               extraConfig = ''
                 autoindex on;
               '';
             };
-            "/blog".extraConfig = '' rewrite ^/(.*)$ https://blog.${host} redirect; '';
-            "/blog/".extraConfig = '' rewrite ^/blog/(.*)$ https://blog.${host}/$1 redirect;'';
+            "/blog".extraConfig = '' rewrite ^/(.*)$ https://blog.${config.hostName} redirect; '';
+            "/blog/".extraConfig = '' rewrite ^/blog/(.*)$ https://blog.${config.hostName}/$1 redirect;'';
           };
         };
-        "docs.${host}" = {
+        "docs.${config.hostName}" = {
           enableACME = true;
           forceSSL = true;
           locations ={
             "/resume" = {
-              root = "${path}";
+              root = "${config.path}";
               extraConfig = ''
                 rewrite ^ /resume.pdf break;
                 add_header Content-Disposition 'inline';
               '';
             };
-            "/resume-01" = {
-              root = "${path}";
-              extraConfig = ''
-                rewrite ^ /resume-01.pdf break;
-                add_header Content-Disposition 'inline';
-              '';
-            };
-
           };
         };
-        "blog.${host}" = {
+        "blog.${config.hostName}" = {
           enableACME = true;
           forceSSL = true;
-          root = "${path}/blog/_site/";
+          root = "${config.blogSrc}";
         };
-        "api.${host}" = {
+        "test.${config.hostName}" = {
           enableACME = true;
           forceSSL = true;
           locations."/".proxyPass = "http://localhost:8080";
-        };
-        "ag.${host}" = {
-          enableACME = true;
-          forceSSL = true;
-          locations."/".proxyPass = "http://localhost:3001"; #first use 3000 to setup then change port here as per portal configuration.
         };
       };
     };
   };
 
-  services.adguardhome = {
-    enable = true;
-    port = 3000;
-    mutableSettings = true;
-  };
-
   security.acme = {
     acceptTerms = true;
-    certs."${host}".webroot = "/var/lib/acme/acme-challenge";
-    defaults.email = "hi.creator54@gmail.com";
+    certs."${config.hostName}".webroot = "/var/lib/acme/acme-challenge";
+    defaults.email = "${config.userEmail}";
   };
 
   systemd.services.nginx.serviceConfig.ProtectHome = "read-only";
