@@ -1,14 +1,13 @@
 { pkgs, ... }:
-
 let
-  userConfig = (import ./userConfig.nix).userConfig;
+  userConfig = (import ../userConfig.nix).userConfig;
 in
 {
   imports = [
-    ./web.nix
-    ./whoogle.nix
-    ./next-cloud.nix
-    ./code-server.nix
+    ./modules/web.nix
+    ./modules/whoogle.nix
+    ./modules/next-cloud.nix
+    ./modules/code-server.nix
     ./hardware-configuration.nix
   ];
 

@@ -1,7 +1,6 @@
 { config, pkgs, ... }:
-
 let
-  userConfig = (import ./userConfig.nix).userConfig;
+  userConfig = (import ../../userConfig.nix).userConfig;
 in
 {
   virtualisation = {

@@ -1,7 +1,6 @@
 {config, pkgs, ...}:
-
 let
-  userConfig = (import ./userConfig.nix).userConfig;
+  userConfig = (import ../../userConfig.nix).userConfig;
   unstableTarball = fetchTarball https://releases.nixos.org/nixpkgs/nixpkgs-22.11pre398753.9f15d6c3a74/nixexprs.tar.xz; #for latest nextcloud release
 in
 {

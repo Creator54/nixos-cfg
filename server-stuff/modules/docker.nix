@@ -1,6 +1,6 @@
 { config, pkgs, lib, ... }:
 let
-  userConfig = ( import ./userConfig.nix).userConfig;
+  userConfig = ( import ../../userConfig.nix).userConfig;
 in
 {
   #docker

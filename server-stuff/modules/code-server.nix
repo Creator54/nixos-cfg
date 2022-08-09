@@ -1,6 +1,6 @@
 { config, pkgs, ... }:
 let
-  userConfig = (import ./userConfig.nix).userConfig;
+  userConfig = (import ../../userConfig.nix).userConfig;
 in
 {
   services = { #Gzip and Proxy optimisations needs to be disabled for this to work, also authentication with password always faile

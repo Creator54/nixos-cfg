@@ -1,5 +1,6 @@
 let
-  userConfig = (import ./userConfig.nix).userConfig; #if issues read sudo journalctl -u nginx
+  #if issues read sudo journalctl -u nginx
+  userConfig = (import ../../userConfig.nix).userConfig;
 in
 {
   networking.firewall.allowedTCPPorts = [ 80 443 ];
