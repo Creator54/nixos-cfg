@@ -1,10 +1,14 @@
 { pkgs, ... }:
 
+let
+  userConfig = (import ./userConfig.nix).userConfig;
+in
 {
   imports = [
     ./web.nix
-    #./whoogle.nix
-    #./nextcloud.nix
+    ./whoogle.nix
+    ./next-cloud.nix
+    ./code-server.nix
     ./hardware-configuration.nix
   ];
 
@@ -12,7 +16,7 @@
   boot.cleanTmpDir = true;
 
   networking = {
-    hostName = "server";
+    hostName = "${userConfig.serverHostName}";
     nameservers = ["8.8.4.4" "8.8.8.8" "1.1.1.1" "9.9.9.9"];
     firewall.enable = true;
   };
@@ -33,15 +37,13 @@
       options = "--delete-older-than 7d";
     };
 
-    autoOptimiseStore = true; #automatically detects files in the store that have identical contents and replaces with hard links.
-    trustedUsers = [ "root" "creator54" ]; #for cachix to work
-    #settings = {
-    #  auto-optimise-store = true; #automatically detects files in the store that have identical contents and replaces with hard links.
-    #  trusted-users = [ "root" "creator54" ]; #for cachix to work
-    #};
+    settings = {
+      auto-optimise-store = true; #automatically detects files in the store that have identical contents and replaces with hard links.
+      trusted-users = [ "root" "${userConfig.userName}" ]; #for cachix to work
+    };
   };
 
-  users.users.creator54 = {
+  users.users.${userConfig.userName} = {
     shell = pkgs.fish;
     group = "users";
     extraGroups = [ "wheel" ];
@@ -62,5 +64,5 @@
     priority = 5; #matters only when using multiple swap devices
   };
   swapDevices = [ { device = "/swapfile"; size = 4096; } ];
-  system.stateVersion = "22.05";
+  system.stateVersion = "${userConfig.stateVersion}";
 }

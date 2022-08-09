@@ -1,8 +1,7 @@
 { config, pkgs, ... }:
 
 let
-  host = "creator54.me";
-  serverPort = "8050";
+  userConfig = (import ./userConfig.nix).userConfig;
 in
 {
   virtualisation = {
@@ -15,15 +14,15 @@ in
       containers.whoogle-search = {
         image = "benbusby/whoogle-search:latest";
         autoStart = true;
-        ports = [ "${serverPort}:5000" ]; #server locahost : docker localhost
+        ports = [ "${userConfig.whoogle.port}:5000" ]; #server locahost : docker localhost
       };
     };
   };
   services.nginx.virtualHosts = {
-    "search.${host}" = {
+    "search.${userConfig.hostName}" = {
       enableACME = true;
       forceSSL = true;
-      locations."/".proxyPass = "http://localhost:${serverPort}";
+      locations."/".proxyPass = "http://localhost:${userConfig.whoogle.port}";
     };
   };
 }

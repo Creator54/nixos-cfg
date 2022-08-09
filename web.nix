@@ -1,5 +1,5 @@
 let
-  config = (import ./userConfig.nix).userConfig; #if issues read sudo journalctl -u nginx
+  userConfig = (import ./userConfig.nix).userConfig; #if issues read sudo journalctl -u nginx
 in
 {
   networking.firewall.allowedTCPPorts = [ 80 443 ];
@@ -15,27 +15,21 @@ in
       sslCiphers = "AES256+EECDH:AES256+EDH:!aNULL";
 
       virtualHosts = {
-        "${config.hostName}" = {
+        "${userConfig.hostName}" = {
           enableACME = true;
           forceSSL = true;
-          root = "${config.hostSrc}";
+          root = "${userConfig.hostSrc}";
           locations = {
-            "/logs" = {
-              root = "${config.path}";
-              extraConfig = ''
-                autoindex on;
-              '';
-            };
-            "/blog".extraConfig = '' rewrite ^/(.*)$ https://blog.${config.hostName} redirect; '';
-            "/blog/".extraConfig = '' rewrite ^/blog/(.*)$ https://blog.${config.hostName}/$1 redirect;'';
+            "/blog".extraConfig = '' rewrite ^/(.*)$ https://blog.${userConfig.hostName} redirect; '';
+            "/blog/".extraConfig = '' rewrite ^/blog/(.*)$ https://blog.${userConfig.hostName}/$1 redirect;'';
           };
         };
-        "docs.${config.hostName}" = {
+        "docs.${userConfig.hostName}" = {
           enableACME = true;
           forceSSL = true;
           locations ={
             "/resume" = {
-              root = "${config.path}";
+              root = "${userConfig.path}";
               extraConfig = ''
                 rewrite ^ /resume.pdf break;
                 add_header Content-Disposition 'inline';
@@ -43,12 +37,12 @@ in
             };
           };
         };
-        "blog.${config.hostName}" = {
+        "blog.${userConfig.hostName}" = {
           enableACME = true;
           forceSSL = true;
-          root = "${config.blogSrc}";
+          root = "${userConfig.blogSrc}";
         };
-        "test.${config.hostName}" = {
+        "test.${userConfig.hostName}" = {
           enableACME = true;
           forceSSL = true;
           locations."/".proxyPass = "http://localhost:8080";
@@ -59,8 +53,8 @@ in
 
   security.acme = {
     acceptTerms = true;
-    certs."${config.hostName}".webroot = "/var/lib/acme/acme-challenge";
-    defaults.email = "${config.userEmail}";
+    certs."${userConfig.hostName}".webroot = "/var/lib/acme/acme-challenge";
+    defaults.email = "${userConfig.userEmail}";
   };
 
   systemd.services.nginx.serviceConfig.ProtectHome = "read-only";

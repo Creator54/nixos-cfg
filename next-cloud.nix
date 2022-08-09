@@ -1,8 +1,8 @@
 {config, pkgs, ...}:
 
 let
-  nextcloudhost = "cloud.creator54.me";
-  unstableTarball = fetchTarball https://releases.nixos.org/nixpkgs/nixpkgs-22.11pre395741.1a1bd86756c/nixexprs.tar.xz;
+  userConfig = (import ./userConfig.nix).userConfig;
+  unstableTarball = fetchTarball https://releases.nixos.org/nixpkgs/nixpkgs-22.11pre398753.9f15d6c3a74/nixexprs.tar.xz; #for latest nextcloud release
 in
 {
   nixpkgs.config = {
@@ -14,16 +14,9 @@ in
     };
   };
 
-  services.nginx = {
-  # Setup Nextcloud virtual host to listen on ports
-    virtualHosts = {
-      "${nextcloudhost}" = {
-        ## Force HTTP redirect to HTTPS
-        forceSSL = true;
-        ## LetsEncrypt
-        enableACME = true;
-      };
-    };
+  services.nginx.virtualHosts."${userConfig.nextCloud.host}" = {
+    forceSSL = true;
+    enableACME = true;
   };
 
   # Actual Nextcloud Config
@@ -31,7 +24,7 @@ in
     enable = true;
     package = pkgs.unstable.nextcloud24;
     enableImagemagick = true;
-    hostName = "${nextcloudhost}";
+    hostName = "${userConfig.nextCloud.host}";
     # Enable built-in virtual host management
     # Takes care of somewhat complicated setup
     # See here: https://github.com/NixOS/nixpkgs/blob/master/nixos/modules/services/web-apps/nextcloud.nix#L529
@@ -50,15 +43,15 @@ in
       # Further forces Nextcloud to use HTTPS
       overwriteProtocol = "https";
 
-      # Nextcloud PostegreSQL database configuration, recommended over using SQLite
+      # Nextcloud PostegreSQL database userConfiguration, recommended over using SQLite
       dbtype = "pgsql";
       dbuser = "nextcloud";
       dbhost = "/run/postgresql"; # nextcloud will add /.s.PGSQL.5432 by itself
       dbname = "nextcloud";
-      dbpassFile = "/var/nextcloud-db-pass";
+      dbpassFile = "/var/nextcloud/db-pass"; #manually create these files 
 
-      adminuser = "creator54";
-      adminpassFile = "/var/nextcloud-admin-pass";
+      adminuser = "${userConfig.userName}";
+      adminpassFile = "/var/nextcloud/admin-pass";
     };
   };
 
