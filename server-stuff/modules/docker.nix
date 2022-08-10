@@ -3,7 +3,6 @@ let
   userConfig = ( import ../../userConfig.nix).userConfig;
 in
 {
-  #docker
   virtualisation.docker = {
     enable = true;
     enableOnBoot = false;
@@ -15,5 +14,4 @@ in
   users.users.${userConfig.userName}.extraGroups = ["docker"];
   # https://stackoverflow.com/questions/24309526/how-to-change-the-docker-image-installation-directory
   # https://github.com/NixOS/nixpkgs/issues/68349
-
 }
