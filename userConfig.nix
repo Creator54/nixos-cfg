@@ -10,6 +10,10 @@
       port = 5000;
     };
     nextCloud.host = "cloud.creator54.me";
+    adguard = {
+      host = "ag.creator54.me";
+      port = 3000; #set this port only in the webUI
+    };
     whoogle = {
       host = "search.creator54.me";
       port = "8050"; #strings allowed here

@@ -6,6 +6,7 @@ in
   imports = [
     ./modules/web.nix
     ./modules/whoogle.nix
+    ./modules/adguard.nix
     ./modules/next-cloud.nix
     ./modules/code-server.nix
     ./hardware-configuration.nix
