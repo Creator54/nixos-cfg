@@ -15,6 +15,12 @@
       host = "ag.creator54.me";
       port = 3000; #set this port only in the webUI
     };
+    plex = {
+      user = "creator54";
+      host = "plex.creator54.me";
+      dataDir = "/var/lib/plex";
+      port = 32400; #plex runs on this port by default, no option to change currently
+    };
     whoogle = {
       host = "search.creator54.me";
       port = "8050"; #strings allowed here

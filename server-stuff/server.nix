@@ -8,6 +8,7 @@ in
     ./modules/whoogle.nix
     ./modules/adguard.nix
     ./modules/next-cloud.nix
+    ./modules/plex-server.nix
     #./modules/code-server.nix
     ./hardware-configuration.nix
   ];
