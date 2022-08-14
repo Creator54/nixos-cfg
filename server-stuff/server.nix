@@ -36,16 +36,6 @@ in
     settings = {
       auto-optimise-store = true; #automatically detects files in the store that have identical contents and replaces with hard links.
       trusted-users = [ "root" "${userConfig.userName}" ]; #for cachix to work
-      trusted-public-keys = [
-        "hydra.iohk.io:f/Ea+s+dFdN+3Y/G+FDgSq+a5NEWhJGzdjvKNGv0/EQ="
-        "hydra.iohk.io:f/Ea+s+dFdN+3Y/G+FDgSq+a5NEWhJGzdjvKNGv0/EQ="
-        "iohk.cachix.org-1:DpRUyj7h7V830dp/i6Nti+NEO2/nhblbov/8MW7Rqoo=" 
-      ];
-      substituters = [
-        "https://cache.iog.io"
-        "https://hydra.iohk.io"
-        "https://iohk.cachix.org" 
-      ];
     };
   };
 

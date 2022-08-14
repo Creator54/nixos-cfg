@@ -1,6 +1,6 @@
 {config, pkgs, ...}:
 let
-  userConfig = (import ../../userConfig.nix).userConfig;
+  nextCloud = (import ../../userConfig.nix).userConfig.web.nextCloud;
   unstableTarball = fetchTarball https://releases.nixos.org/nixpkgs/nixpkgs-22.11pre398753.9f15d6c3a74/nixexprs.tar.xz; #for latest nextcloud release
 in
 {
@@ -13,7 +13,7 @@ in
     };
   };
 
-  services.nginx.virtualHosts."${userConfig.web.nextCloud.host}" = {
+  services.nginx.virtualHosts."${nextCloud.host}" = {
     forceSSL = true;
     enableACME = true;
   };
@@ -23,7 +23,7 @@ in
     enable = true;
     package = pkgs.unstable.nextcloud24;
     enableImagemagick = true;
-    hostName = "${userConfig.web.nextCloud.host}";
+    hostName = "${nextCloud.host}";
     # Enable built-in virtual host management
     # Takes care of somewhat complicated setup
     # See here: https://github.com/NixOS/nixpkgs/blob/master/nixos/modules/services/web-apps/nextcloud.nix#L529
@@ -49,7 +49,7 @@ in
       dbname = "nextcloud";
       dbpassFile = "/var/nextcloud/db-pass"; #manually create these files
 
-      adminuser = "${userConfig.web.nextCloud.adminUser}";
+      adminuser = "${nextCloud.adminUser}";
       adminpassFile = "/var/nextcloud/admin-pass";
     };
   };
