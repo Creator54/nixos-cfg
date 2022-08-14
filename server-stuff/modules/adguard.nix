@@ -1,17 +1,17 @@
 {config, pkgs, ...}:
 let
-  userConfig = (import ../../userConfig.nix).userConfig;
+  adguard = (import ../../userConfig.nix).userConfig.web.adguard;
 in
 {
   services = {
-    nginx.virtualHosts."${userConfig.adguard.host}" = {
+    nginx.virtualHosts."${adguard.host}" = {
       forceSSL = true;
       enableACME = true;
-      locations."/".proxyPass = "http://localhost:" + builtins.toString userConfig.adguard.port;
+      locations."/".proxyPass = "http://localhost:" + builtins.toString adguard.port;
     };
     adguardhome = {
       enable = true;
-      port = userConfig.adguard.port;
+      port = adguard.port;
     };
   };
 }

@@ -1,6 +1,6 @@
 { config, pkgs, ... }:
 let
-  userConfig = (import ../../userConfig.nix).userConfig;
+  whoogle = (import ../../userConfig.nix).userConfig.web.whoogle;
 in
 {
   virtualisation = {
@@ -13,15 +13,15 @@ in
       containers.whoogle-search = {
         image = "benbusby/whoogle-search:latest";
         autoStart = true;
-        ports = [ "${userConfig.whoogle.port}:5000" ]; #server locahost : docker localhost
+        ports = [ "${whoogle.port}:5000" ]; #server locahost : docker localhost
       };
     };
   };
   services.nginx.virtualHosts = {
-    "search.${userConfig.hostName}" = {
+    "${whoogle.host}" = {
       enableACME = true;
       forceSSL = true;
-      locations."/".proxyPass = "http://localhost:${userConfig.whoogle.port}";
+      locations."/".proxyPass = "http://localhost:${whoogle.port}";
     };
   };
 }

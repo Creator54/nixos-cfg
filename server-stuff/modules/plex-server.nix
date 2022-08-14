@@ -1,14 +1,14 @@
 {config, pkgs, ...}:
 let
-  userConfig = (import ../../userConfig.nix).userConfig;
+  plex = (import ../../userConfig.nix).userConfig.web.plex;
 in
 {
   services = {
-    nginx.virtualHosts."${userConfig.plex.host}" = {
+    nginx.virtualHosts."${plex.host}" = {
       http2 = true; # http2 can more performant for streaming: https://blog.cloudflare.com/introducing-http2/
       forceSSL = true;
       enableACME = true;
-      locations."/".proxyPass = "http://localhost:" + builtins.toString userConfig.plex.port;
+      locations."/".proxyPass = "http://localhost:" + builtins.toString plex.port;
       extraConfig = ''
         #Some players don't reopen a socket and playback stops totally instead of resuming after an extended pause
         send_timeout 100m;
@@ -68,8 +68,8 @@ in
     };
     plex = {
       enable = true;
-      user = userConfig.plex.user;
-      dataDir = userConfig.plex.dataDir;
+      user = plex.user;
+      dataDir = plex.dataDir;
     };
   };
 }

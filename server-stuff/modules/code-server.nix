@@ -1,18 +1,18 @@
 { config, pkgs, ... }:
 let
-  userConfig = (import ../../userConfig.nix).userConfig;
+  codeServer = (import ../../userConfig.nix).userConfig.web.codeServer;
 in
 {
   services = { #Gzip and Proxy optimisations needs to be disabled for this to work, also authentication with password always faile
     code-server = {
       enable = true;
       auth = "none";
-      port = userConfig.codeServer.port;
-      user = "${userConfig.userName}";
+      port = codeServer.port;
+      user = "${codeServer.user}";
     };
     nginx = {
       virtualHosts = {
-        "${userConfig.codeServer.host}" = {
+        "${codeServer.host}" = {
           forceSSL = true;
           enableACME = true;
           extraConfig = ''
@@ -20,7 +20,7 @@ in
             proxy_set_header Connection upgrade;
             proxy_set_header Accept-Encoding gzip;
           '';
-          locations."/".proxyPass = "http://localhost:" + builtins.toString userConfig.codeServer.port;
+          locations."/".proxyPass = "http://localhost:" + builtins.toString codeServer.port;
         };
       };
     };
