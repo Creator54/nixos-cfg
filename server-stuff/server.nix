@@ -4,12 +4,7 @@ let
 in
 {
   imports = [
-    ./modules/web.nix
-    ./modules/whoogle.nix
-    ./modules/adguard.nix
-    ./modules/next-cloud.nix
-    ./modules/plex-server.nix
-    #./modules/code-server.nix
+    ./modules
     ./hardware-configuration.nix
   ];
 

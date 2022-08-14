@@ -1,5 +1,13 @@
 {
   userConfig = {
+    modules = {
+      web = true;
+      whoogle = true;
+      adguard = true;
+      nextCloud = true;
+      plexServer = true;
+      codeServer = false;
+    };
     serverHostName = "server";
     hostName = "creator54.me";
     userName = "creator54";
