@@ -32,8 +32,14 @@ in
         host = "ag.${userDomain}";
         port = 3000; #set this port only in the webUI
       };
-      plex = {
+      jellyfin = {
         enable = true;
+        user = "${user}";
+        host = "tv.${userDomain}";
+        port = 8096; #jellyfin runs on this port by default, no option to change currently
+      };
+      plex = {
+        enable = false;
         user = "${user}";
         host = "plex.${userDomain}";
         dataDir = "/var/lib/plex";
