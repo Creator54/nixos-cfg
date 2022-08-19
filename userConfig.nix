@@ -9,7 +9,7 @@ in
     userName = "${user}";
     userPassword = "$1$DWB64kU7$qILCX4xO8DkGDAcvcqANc."; #generate hashed password via openssl passwd -1
     userEmail = "hi.creator54@gmail.com";
-    path = "/home/${user}/website-stuff";
+    path = "/var/data";
 
     hostSrc = builtins.fetchTarball https://github.com/creator54/creator54.me/tarball/main;
     blogSrc = builtins.fetchTarball https://github.com/creator54/blog.creator54.me/tarball/main + "/_site/";

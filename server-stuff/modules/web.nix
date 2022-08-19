@@ -7,7 +7,6 @@ in
   services = {
     nginx = {
       enable = true;
-      user = "${userConfig.userName}";
       enableReload = true;
       statusPage = true;
       recommendedTlsSettings = true;
