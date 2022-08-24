@@ -23,7 +23,7 @@ in
   };
 
   home.packages = with unstable; [
-    vlang ani-cli
+    vlang ani-cli bc
     wget htop github-cli nnn obs-studio openssl xplr
     aria2 nodejs meld libclang gcc
     gnumake fzf vlc tdesktop ncftp
