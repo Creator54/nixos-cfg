@@ -11,7 +11,7 @@
        italic_font      auto
        bold_italic_font auto
 
-       font_size 13
+       font_size 12
        force_ltr yes
        adjust_line_height  0
        adjust_column_width 0
