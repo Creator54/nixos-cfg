@@ -14,7 +14,7 @@ in
     ./fonts.nix
     ./mcfly.nix
     ./zathura.nix
-    #./redshift.nix
+    ./redshift.nix
   ];
 
   services.kdeconnect = {
@@ -23,7 +23,7 @@ in
   };
 
   home.packages = with unstable; [
-    vlang ani-cli bc
+    vlang ani-cli bc zip
     wget htop github-cli nnn obs-studio openssl xplr
     aria2 nodejs meld libclang gcc
     gnumake fzf vlc tdesktop ncftp

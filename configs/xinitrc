@@ -1,4 +1,5 @@
 systemctl --user start udiskie.service & #for automounting usb drives
+systemctl --user start redshift.service & #eyecare
 dbus-launch nm-applet &
 nmcli con up CoudBe & #try connecting to Coudbe if up
 blueman-applet &
