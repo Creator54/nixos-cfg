@@ -62,7 +62,7 @@
        background_opacity 0.8
        dynamic_background_opacity no
 
-       background #262626
+       background #1E1E1E
        foreground #ebdbb2
 
        selection_background #d4be98

@@ -74,6 +74,8 @@
         let g:nnn#layout = { 'window': { 'width': 0.9, 'height': 0.6, 'highlight': 'Debug' } }
 
         colorscheme onedark
+        set termguicolors
+        hi Normal guibg=#1E1E1E
         "colorscheme space-vim-dark
         let g:airline_theme='deus'
 
