@@ -6,7 +6,6 @@ xrdb -load ~/.Xresources &
 numlockx on &
 feh --bg-fill --randomize ~/wallpapers/
 xset -b &
-picom -CG --experimental-backends &
 pkill clipit; clipit -n &
 kdeconnect-indicator &
 
