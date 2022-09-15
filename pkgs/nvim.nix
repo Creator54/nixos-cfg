@@ -29,6 +29,13 @@
         };
       };
       extraConfig = ''
+        call wilder#setup({
+              \ 'modes': [':', '/', '?'],
+              \ 'next_key': '<Tab>',
+              \ 'previous_key': '<S-Tab>',
+              \ 'accept_key': '<Down>',
+              \ 'reject_key': '<Up>',
+              \ })
         "quick-scppe config
         " Trigger a highlight only when pressing f and F.
         "let g:qs_highlight_on_keys = ['f', 'F']
@@ -45,6 +52,9 @@
         nnoremap <C-Tab> :tabn<CR>
         nnoremap <C-S-Tab> :tabp<CR>
 
+       " .vimrc
+        let g:auto_save = 1  " enable AutoSave on Vim startup
+
         " vim-fish
         syntax enable
         filetype plugin indent on
@@ -56,6 +66,9 @@
 
         " set the mapleader to space
         let mapleader = " "
+
+        " Copy file contents directly to clipboard
+        set clipboard=unnamedplus
 
         "Vim-pad : for taking notes while working on a file
         "Disable default
@@ -165,8 +178,27 @@
             sha256 = "sha256-MfqxI8CXmVXn3ZAyZqCufgZ690GTuy6PMgKTPVBuNm4=";
           };
         };
-
+        wilder = pkgs.vimUtils.buildVimPlugin {
+          name = "wilder.nvim";
+          src = pkgs.fetchFromGitHub {
+            owner = "gelguy";
+            repo = "wilder.nvim";
+            rev = "master";
+            sha256 = "sha256-jbLwoZLD6jL9QMIuUXiCbA4nP0Caw+iiHuCCGaxLZQU=";
+          };
+        };
+        vim-auto-save = pkgs.vimUtils.buildVimPlugin {
+          name = "vim-auto-save";
+          src = pkgs.fetchFromGitHub {
+            owner = "907th";
+            repo = "vim-auto-save";
+            rev = "master";
+            sha256 = "sha256-sCUEGcIyJHs/Qqgl6246ZWcNokTR0h9+AA6SYzyMhtU=";
+          };
+        };
       in [
+        vim-auto-save
+        wilder
         quick-scope
         vim-better-whitespace
         vim-javascript
