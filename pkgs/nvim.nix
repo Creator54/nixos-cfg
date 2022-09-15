@@ -67,6 +67,9 @@
         " set the mapleader to space
         let mapleader = " "
 
+        " make Vim mouse aware: i.e enable mouse pointing
+        set mouse=a
+
         " Copy file contents directly to clipboard
         set clipboard=unnamedplus
 
