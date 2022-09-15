@@ -1,8 +1,9 @@
 { config, pkgs, lib, ... }:
-let
-  unstable = import (builtins.fetchTarball https://github.com/nixos/nixpkgs/tarball/nixpkgs-unstable)
-  { config = config.nixpkgs.config; };
-in
+#let
+#  unstable = import (builtins.fetchTarball https://github.com/nixos/nixpkgs/tarball/nixpkgs-unstable)
+#  { config = config.nixpkgs.config; };
+#in
+#using unstable means regular updates, ie more data usage
 {
   imports = [
     ./git.nix
@@ -22,27 +23,24 @@ in
     indicator = true;
   };
 
-  home.packages = with unstable; [
+  home.packages = with pkgs; [
     vlang ani-cli bc zip
-    wget htop github-cli nnn obs-studio openssl xplr
-    aria2 nodejs meld libclang gcc
+    wget htop github-cli nnn openssl xplr
+    aria2 nodejs libclang gcc
     gnumake fzf vlc tdesktop ncftp
-    capitaine-cursors fortune file
-    w3m gnome.nautilus qtcreator
-    colorpicker smartmontools glances jq
-    youtube-dl eva ueberzug tree qbittorrent
+    capitaine-cursors fortune file gnome.nautilus
+    colorpicker smartmontools jq
+    yt-dlp eva ueberzug tree qbittorrent
     unzip picom cmus conky fd #faster find alternative
-    inkscape okular gromit-mpx pup
-    speedtest-cli electron progress
+    gromit-mpx pup progress
     anydesk lm_sensors screenkey
-    efibootmgr duf gdu xclip direnv
-    jupyter clipit nix-output-monitor
+    efibootmgr duf gdu xclip direnv clipit
     dig ffmpeg pciutils nix-index #contains nix-locate
     entr googler imgp recode glow
     papirus-maia-icon-theme fff acpi sxiv axel python39 groff #for ms macros to pdf
     pandoc texlive.combined.scheme-small #for converting .md files to pdf
-    ddgr nodePackages.peerflix bluetooth_battery ytfzf
-    (kodi.withPackages (p: with p; [ inputstream-adaptive pvr-iptvsimple inputstreamhelper ])) #kodi with jiotv, last is for drm
+    ddgr ytfzf
+    #(kodi.withPackages (p: with p; [ inputstream-adaptive pvr-iptvsimple inputstreamhelper ])) #kodi with jiotv, last is for drm
   ];
   nixpkgs.config.allowUnfree = true;
 }
