@@ -5,7 +5,7 @@
     enable = true;
     extraConfig =
     "
-      : Fonts {{{
+      #: Fonts {{{
        font_family      FiraCode Nerd Font
        bold_font        auto
        italic_font      auto
@@ -16,31 +16,36 @@
        adjust_line_height  0
        adjust_column_width 0
        disable_ligatures never
-      : }}}
+      #: }}}
 
-      : Cursor customization {{{
+      #: Cursor customization {{{
        cursor #dc3232
-      : Default cursor color
+      #: Default cursor color
        cursor_text_color #FFFFFF
        cursor_shape beam
-      : }}}
+      #: }}}
 
-      : Scrollback {{{
+      #: Scrollback {{{
        scrollback_lines 2000
        wheel_scroll_multiplier 5.0
        touch_scroll_multiplier 1.0
-      : }}}
+      #: }}}
 
-      : Mouse {{{
+      #: Mouse {{{
        mouse_hide_wait 0.0
        url_color #0087bd
        url_style curly
        open_url_with default
        focus_follows_mouse yes
-      : }}}
+      #: }}}
 
       # Window settings
-      : Window layout {{{
+      #: Window layout {{{
+       map alt+1 first_window
+       map alt+2 second_window
+       map alt+3 third_window
+       map alt+tab next_window
+       map alt+shift+tab previous_window
        window_border_width 0
        draw_minimal_borders no
        window_padding_width 30
@@ -48,18 +53,18 @@
        active_border_color #00ff00
        inactive_border_color #cccccc
        hide_window_decorations yes
-      : }}}
+      #: }}}
 
       #Tab bar settings
-      : Tab bar {{{
+      #: Tab bar {{{
        tab_bar_edge bottom
        tab_bar_margin_width 0.0
        tab_bar_style powerline
-      : }}}
+      #: }}}
 
       #Color Settings (Gruvbox)
-      : Color scheme {{{
-       background_opacity 0.8
+      #: Color scheme {{{
+       background_opacity 0.9
        dynamic_background_opacity no
 
        background #1E1E1E
@@ -95,25 +100,23 @@
        color7 #d4be98
        color15 #d4be98
 
-      : }}}
+      #: }}}
 
       #Clipboard Settings
-      : Clipboard {{{
+      #: Clipboard {{{
        map cmd+c        copy_to_clipboard
-      : }}}
+      #: }}}
 
       # Resizing fonts
-      : Font sizes {{{
+      #: Font sizes {{{
        map cmd+plus            change_font_size all +2.0
        map cmd+minus           change_font_size all -2.0
-      : }}}
+      #: }}}
 
-       }}}
-
-      : Terminal bell {{{
+      #: Terminal bell {{{
        enable_audio_bell no
        window_alert_on_bell no
-      :}}}
+      #: }}}
 
       #for opening preview in nnn
       allow_remote_control yes
