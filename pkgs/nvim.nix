@@ -45,6 +45,12 @@
         let g:better_whitespace_enabled=1
         let g:strip_whitespace_on_save=1
 
+        " Ctrl +a
+        nnoremap <C-a>     :normal gg0vG$<CR>
+
+        " Ctrl +c
+        nnoremap <C-c>     :normal gg0vG$y<CR>
+
         " open a new tab
         nnoremap <C-n>     :tabnew<CR>
 
