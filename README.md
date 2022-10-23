@@ -1,5 +1,8 @@
 # Making rm -rf ~/.* / pretty much useless 😅
 
+```
+home-manager switch --flake ".#laptop" --impure
+```
 - Screenshots:
 
     > **O.S. :** NixOS,
