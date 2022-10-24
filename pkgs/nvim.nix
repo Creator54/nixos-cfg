@@ -100,6 +100,7 @@
         hi Normal guibg=#1E1E1E
         "colorscheme space-vim-dark
         let g:airline_theme='deus'
+        let g:airline_powerline_fonts = 1
 
         set ts=2 sw=2
 
