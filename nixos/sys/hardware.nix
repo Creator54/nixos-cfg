@@ -11,7 +11,7 @@
     kernelModules = [ "kvm-intel" ];
     extraModulePackages = [ ];
     supportedFilesystems = [ "ntfs-3g" ];
-    #resumeDevice = "/dev/sda4";
+    resumeDevice = "/dev/sdb2"; #this should be pointing to the drive where swapfile exists
 
     # https://discourse.nixos.org/t/thinkpad-t470s-power-management/8141
     extraModprobeConfig = lib.mkMerge [
@@ -28,7 +28,7 @@
       "i915.enable_fbc=1"
       "i915.enable_psr=2"
       "intel_pstate=disable"
-     # "resume_offset=3858432" #get it via sudo filefrag -v /swapfile | awk '{if($1=="0:"){print $4}}'
+      "resume_offset=2244125" #get it via sudo filefrag -v /swapfile | awk '{if($1=="0:"){print $4}}'
     ];
   };
 
