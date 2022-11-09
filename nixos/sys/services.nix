@@ -92,7 +92,10 @@
   #};
 
   # light works even without an xsession
-  programs.light.enable = true;
+  programs = {
+    light.enable = true;
+    nix-ld.enable = true; #Run unpatched dynamic binaries on NixOS., check : https://github.com/Mic92/nix-ld
+  };
   sound.enable = true;
 }
 

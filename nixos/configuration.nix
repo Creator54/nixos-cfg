@@ -3,7 +3,7 @@
 {
   imports =
     [
-      ./kernel/zen.nix #not including reverts kernel to one included in nixos revision
+      ./kernel/latest.nix #not including reverts kernel to one included in nixos revision
       ./sys/hardware.nix
       ./sys/services.nix
       #./sys/flatpak.nix
@@ -11,7 +11,7 @@
       ./sys/hosts.nix
       ./sys/resolved-hosts.nix
       #./sys/docker.nix
-      ./sys/plymouth.nix
+      #./sys/plymouth.nix
       #./sys/samba.nix
       #./sys/nvidia.nix
       #./sys/silent_boot.nix
