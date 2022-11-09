@@ -1,8 +1,8 @@
 { config, pkgs, lib, ... }:
-#let
-#  unstable = import (builtins.fetchTarball https://github.com/nixos/nixpkgs/tarball/nixpkgs-unstable)
-#  { config = config.nixpkgs.config; };
-#in
+let
+  unstable = import (builtins.fetchTarball https://github.com/nixos/nixpkgs/tarball/nixpkgs-unstable)
+  { config = config.nixpkgs.config; };
+in
 #using unstable means regular updates, ie more data usage
 {
   imports = [
@@ -24,7 +24,7 @@
   };
 
   home.packages = with pkgs; [
-    vlang ani-cli bc zip
+    vlang ani-cli bc zip helix notion-app-enhanced
     wget htop github-cli nnn openssl xplr
     aria2 nodejs libclang gcc
     gnumake fzf vlc tdesktop ncftp
