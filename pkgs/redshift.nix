@@ -3,17 +3,17 @@
 {
   services.redshift = {
     enable = true;
-    latitude = "25.5941";
-    longitude = "85.1356";
+    latitude = "12.9719";
+    longitude = "77.5937";
     tray = true;
     provider = "manual";
     temperature = {
-      night = 5501;
-      day = 3501;
+      night = 5500;
+      day = 3700;
     };
-    settings.redshift = {
-      brightness-day = "0.4";
-      brightness-night = "0.9";
-    };
+    #settings.redshift = {
+    #  brightness-day = "0.4";
+    #  brightness-night = "0.9";
+    #};
   };
 }
