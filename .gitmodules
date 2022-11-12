@@ -1,6 +1,6 @@
 [submodule "configs/fish"]
 	path = configs/fish
-	url = git@github.com:Creator54/fish.git
+	url = git@github.com:creator54/fish
 	branch = main
 [submodule "wm/wm-configs/awesome"]
 	path = wm/wm-configs/awesome
