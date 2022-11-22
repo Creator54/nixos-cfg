@@ -39,6 +39,8 @@ in
     };
   };
 
+  nixpkgs.config.allowUnfree = true;
+
   users.users.${userConfig.userName} = {
     shell = pkgs.fish;
     group = "users";
