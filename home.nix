@@ -1,7 +1,8 @@
 { config, pkgs, lib, ... }:
 
 let
-  cfgPath = /home/creator54/.config/nixpkgs/configs;
+  user = "creator54";
+  cfg = "/home/${user}/.config/nixpkgs/configs";
 in
 {
   imports = [
@@ -12,23 +13,23 @@ in
   ];
 
   home = {
-    username = "creator54";
+    username = "${user}";
     stateVersion = "22.05"; #do not touch
-    homeDirectory = "/home/creator54";
+    homeDirectory = "/home/${user}";
     enableNixpkgsReleaseCheck = true;
 
     file = {
-      ".config/gromit-mpx.ini".source                       = "${cfgPath}/gromit-mpx.ini";
-      ".config/flameshot".source                            = "${cfgPath}/flameshot";
-      ".config/fish".source                                 = "${cfgPath}/fish";
-      ".config/xplr".source                                 = "${cfgPath}/xplr";
-      ".config/mpv/scripts".source                          = "${cfgPath}/mpv/scripts";
-      ".config/mpv/script-opts/youtube-quality.conf".source = "${cfgPath}/mpv/youtube-quality.conf";
-      ".config/gtk-3.0".source                              = "${cfgPath}/gtk-3.0";
-      ".config/htop".source                                 = "${cfgPath}/htop";
-      ".icons".source                                       = "${cfgPath}/icons";
-      ".xinitrc".source                                     = "${cfgPath}/xinitrc";
-      ".Xresources".source                                  = "${cfgPath}/Xresources";
+      ".config/gromit-mpx.ini".source                       = "${cfg}/gromit-mpx.ini";
+      ".config/flameshot".source                            = "${cfg}/flameshot";
+      ".config/fish".source                                 = "${cfg}/fish";
+      ".config/xplr".source                                 = "${cfg}/xplr";
+      ".config/mpv/scripts".source                          = "${cfg}/mpv/scripts";
+      ".config/mpv/script-opts/youtube-quality.conf".source = "${cfg}/mpv/youtube-quality.conf";
+      ".config/gtk-3.0".source                              = "${cfg}/gtk-3.0";
+      ".config/htop".source                                 = "${cfg}/htop";
+      ".icons".source                                       = "${cfg}/icons";
+      ".xinitrc".source                                     = "${cfg}/xinitrc";
+      ".Xresources".source                                  = "${cfg}/Xresources";
     };
   };
 }
