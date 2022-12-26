@@ -33,41 +33,30 @@
 
         call wilder#setup({'modes': [':', '/', '?']})
 
-        call wilder#set_option('pipeline', [
-          \ wilder#branch(
-          \     wilder#cmdline_pipeline({
-          \       'fuzzy': 1,
-          \       'set_pcre2_pattern': 1,
-          \     }),
-          \     wilder#python_search_pipeline({
-          \       'pattern': 'fuzzy',
-          \     }),
-          \   ),
-        \ ])
+        call wilder#set_option('pipeline', [ wilder#branch(
+        \   wilder#cmdline_pipeline({
+        \     'fuzzy': 1,
+        \     'set_pcre2_pattern': 1,
+        \   }),
+        \   wilder#python_search_pipeline({
+        \     'pattern': 'fuzzy',
+        \   }),
+        \),])
 
         let s:highlighters = [ wilder#pcre2_highlighter(), wilder#basic_highlighter(), ]
 
         call wilder#set_option('renderer', wilder#popupmenu_renderer(wilder#popupmenu_palette_theme({
           \ 'border': 'rounded',
+          \ 'left': [
+          \   ' ',
+          \   wilder#popupmenu_devicons(),
+          \   wilder#popupmenu_buffer_flags(),
+          \ ],
           \ 'max_height': '75%',
           \ 'min_height': 0,
-          \ 'prompt_position': 'top',
+          \ 'prompt_position': 'bottom',
           \ 'reverse': 0,
           \ })))
-
-        "call wilder#set_option('renderer', wilder#renderer_mux({
-        "  \ ':': wilder#popupmenu_renderer(wilder#popupmenu_border_theme({
-        "  \     'highlights': { 'border': 'Normal', },
-        "  \     'border': 'rounded',
-        "  \     'highlighter': wilder#basic_highlighter(),
-        "  \     'left': [ ' ', wilder#popupmenu_devicons(), ],
-        "  \     'right': [ ' ', wilder#popupmenu_scrollbar(), ],
-        "  \     'min_width': '100%',
-        "  \     'min_height': '30%',
-        "  \     'reverse': 0,
-        "  \ })),
-        "  \ '/': wilder#wildmenu_renderer({ 'highlighter': s:highlighters, }),
-        "\ }))
 
         "quick-scppe config
         " Trigger a highlight only when pressing f and F.
@@ -240,6 +229,7 @@
           };
         };
       in [
+        nvim-web-devicons
         vim-auto-save
         wilder
         quick-scope
