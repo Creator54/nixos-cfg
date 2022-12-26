@@ -29,13 +29,46 @@
         };
       };
       extraConfig = ''
-        call wilder#setup({
-              \ 'modes': [':', '/', '?'],
-              \ 'next_key': '<Tab>',
-              \ 'previous_key': '<S-Tab>',
-              \ 'accept_key': '<Down>',
-              \ 'reject_key': '<Up>',
-              \ })
+        "THIS IS VIMSCRIPT
+
+        call wilder#setup({'modes': [':', '/', '?']})
+
+        call wilder#set_option('pipeline', [
+          \ wilder#branch(
+          \     wilder#cmdline_pipeline({
+          \       'fuzzy': 1,
+          \       'set_pcre2_pattern': 1,
+          \     }),
+          \     wilder#python_search_pipeline({
+          \       'pattern': 'fuzzy',
+          \     }),
+          \   ),
+        \ ])
+
+        let s:highlighters = [ wilder#pcre2_highlighter(), wilder#basic_highlighter(), ]
+
+        call wilder#set_option('renderer', wilder#popupmenu_renderer(wilder#popupmenu_palette_theme({
+          \ 'border': 'rounded',
+          \ 'max_height': '75%',
+          \ 'min_height': 0,
+          \ 'prompt_position': 'top',
+          \ 'reverse': 0,
+          \ })))
+
+        "call wilder#set_option('renderer', wilder#renderer_mux({
+        "  \ ':': wilder#popupmenu_renderer(wilder#popupmenu_border_theme({
+        "  \     'highlights': { 'border': 'Normal', },
+        "  \     'border': 'rounded',
+        "  \     'highlighter': wilder#basic_highlighter(),
+        "  \     'left': [ ' ', wilder#popupmenu_devicons(), ],
+        "  \     'right': [ ' ', wilder#popupmenu_scrollbar(), ],
+        "  \     'min_width': '100%',
+        "  \     'min_height': '30%',
+        "  \     'reverse': 0,
+        "  \ })),
+        "  \ '/': wilder#wildmenu_renderer({ 'highlighter': s:highlighters, }),
+        "\ }))
+
         "quick-scppe config
         " Trigger a highlight only when pressing f and F.
         "let g:qs_highlight_on_keys = ['f', 'F']
