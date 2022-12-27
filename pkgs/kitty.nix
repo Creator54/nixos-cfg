@@ -64,7 +64,7 @@
 
       #Color Settings (Gruvbox)
       #: Color scheme {{{
-       background_opacity 0.5
+       background_opacity 0.94
        dynamic_background_opacity no
 
        background #1E1E1E
