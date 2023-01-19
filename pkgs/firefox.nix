@@ -17,7 +17,6 @@
         darkreader
         sponsorblock
         ublock-origin
-        https-everywhere
         facebook-container
         bypass-paywalls-clean
         return-youtube-dislikes
