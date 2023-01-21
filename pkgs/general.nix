@@ -14,6 +14,7 @@ in
     ./kitty.nix
     ./fonts.nix
     ./mcfly.nix
+    ./ani-cli.nix
     ./zathura.nix
     ./redshift.nix
   ];
@@ -24,7 +25,7 @@ in
   };
 
   home.packages = with pkgs; [
-    vlang ani-cli bc zip helix notion-app-enhanced
+    vlang bc zip helix notion-app-enhanced
     wget htop github-cli nnn openssl xplr
     aria2 nodejs libclang gcc
     gnumake fzf vlc tdesktop ncftp
