@@ -1,21 +1,18 @@
 { config, pkgs, lib, ... }:
 let
-  userConfig = (import ./userConfig.nix).userConfig;
+  uc = (import ./userConfig.nix).userConfig;
 in
 {
-  imports = [
-    ./pkgs/general.nix
-  ];
+  home-manager.users.${uc.userName} = { pkgs, ... }: {
+    imports = [
+      ./pkgs/general.nix
+      ./configs/symlinks.nix
+    ];
 
-  home = {
-    username = "${userConfig.userName}";
-    homeDirectory = "/home/${userConfig.userName}";
-    stateVersion = "${userConfig.stateVersion}";
-
-    file = {
-      ".config/fish".source = ./configs/fish;
-      ".config/htop".source = ./configs/htop;
-      ".tmux.conf".source = ./configs/tmux.conf;
+    home = {
+      username = "${uc.userName}";
+      homeDirectory = "/home/${uc.userName}";
+      stateVersion = "${uc.stateVersion}";
     };
   };
 }

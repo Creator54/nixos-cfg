@@ -6,6 +6,6 @@
     enableBashIntegration = true;
     enableFishIntegration = true;
     enableZshIntegration = true;
-    enableFuzzySearch = true;
+    fuzzySearchFactor = 5;#https://github.com/cantino/mcfly#fuzzy-searching
   };
 }

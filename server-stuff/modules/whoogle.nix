@@ -4,12 +4,8 @@ let
 in
 {
   virtualisation = {
-    podman = {
-      enable = true;
-      dockerCompat = true;
-    };
     oci-containers = {
-      backend = "podman";
+      backend = "docker";
       containers.whoogle-search = {
         image = "benbusby/whoogle-search:latest";
         autoStart = true;

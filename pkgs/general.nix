@@ -10,8 +10,8 @@
   ];
 
   home.packages = with pkgs; [
-    wget htop github-cli nnn
-    aria2 nodejs meld libclang gcc gnumake fzf
+    wget htop github-cli nnn starship
+    aria2 nodejs libclang gcc gnumake fzf
     smartmontools glances jq direnv
     eva unzip fd #faster find alternative
     progress lm_sensors duf gdu xclip

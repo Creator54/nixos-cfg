@@ -1,18 +1,24 @@
 { pkgs, ... }:
 let
-  userConfig = (import ../userConfig.nix).userConfig;
+  uc = (import ../userConfig.nix).userConfig;
+  hm = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/release-${uc.stateVersion}.tar.gz";
 in
 {
   imports = [
     ./modules
+    ../home.nix
+    (import "${hm}/nixos")
     ./hardware-configuration.nix
   ];
 
-  environment.systemPackages = with pkgs; [ home-manager  cachix ];
-  boot.cleanTmpDir = true;
+  environment.systemPackages = with pkgs; [ cachix home-manager ];
+  boot = {
+    kernelPackages = pkgs.linuxPackages_zen;
+    cleanTmpDir = true;
+  };
 
   networking = {
-    hostName = "${userConfig.serverHostName}";
+    hostName = "${uc.serverHostName}";
     nameservers = ["8.8.4.4" "8.8.8.8" "1.1.1.1" "9.9.9.9"];
     firewall.enable = true;
   };
@@ -29,34 +35,36 @@ in
   nix = {
     gc = {
       automatic = true;                 # runs nix-collect-garbage which removes old unrefrenced packages
-      dates = "weekly";
+      dates = "daily";
       options = "--delete-older-than 7d";
     };
-
     settings = {
-      auto-optimise-store = true; #automatically detects files in the store that have identical contents and replaces with hard links.
-      trusted-users = [ "root" "${userConfig.userName}" ]; #for cachix to work
+      experimental-features = [ "nix-command" "flakes" ]; #enable flakes
+      substituters = [
+       "https://cache.nixos.org"
+       "https://nixpkgs.cachix.org"
+       "https://nix-community.cachix.org"
+      ];
+      trusted-public-keys = [
+        "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
+        "nixpkgs.cachix.org-1:q91R6hxbwFvDqTSDKwDAV4T5PxqXGxswD8vhONFMeOE="
+        "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+      ];
+      auto-optimise-store = true; #automatically detects files in the sto      re that have identical contents and replaces with hard links.
+      trusted-users = [ "root" "${uc.userName}" ]; #for cachix to work
     };
   };
 
   nixpkgs.config.allowUnfree = true;
 
-  users.users.${userConfig.userName} = {
+  users.users.${uc.userName} = {
     shell = pkgs.fish;
     group = "users";
     extraGroups = [ "wheel" ];
     isNormalUser = true;
-    hashedPassword = userConfig.userPassword;
-    openssh.authorizedKeys.keys = userConfig.sshKeys;
-  };
-  zramSwap = {
-    enable = true;
-    algorithm = "zstd";
-    #memoryMax = 3072;
-    memoryPercent = 50;
-    numDevices = 1;
-    priority = 5; #matters only when using multiple swap devices
+    hashedPassword = uc.userPassword;
+    openssh.authorizedKeys.keys = uc.sshKeys;
   };
   swapDevices = [ { device = "/swapfile"; size = 4096; } ];
-  system.stateVersion = "${userConfig.stateVersion}";
+  system.stateVersion = "${uc.stateVersion}";
 }
