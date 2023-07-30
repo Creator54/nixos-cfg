@@ -1,6 +1,6 @@
 {config, pkgs, ...}:
 let
-  adguard = (import ../../userConfig.nix).userConfig.web.adguard;
+  adguard = (import ../../userConfig.nix).web.adguard;
 in
 {
   services = {

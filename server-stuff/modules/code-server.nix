@@ -1,6 +1,6 @@
 { config, pkgs, ... }:
 let
-  codeServer = (import ../../userConfig.nix).userConfig.web.codeServer;
+  codeServer = (import ../../userConfig.nix).web.codeServer;
 in
 {
   services = { #Gzip and Proxy optimisations needs to be disabled for this to work, also authentication with password always faile

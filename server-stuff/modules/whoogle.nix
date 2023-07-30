@@ -1,6 +1,6 @@
 { config, pkgs, ... }:
 let
-  whoogle = (import ../../userConfig.nix).userConfig.web.whoogle;
+  whoogle = (import ../../userConfig.nix).web.whoogle;
 in
 {
   virtualisation = {

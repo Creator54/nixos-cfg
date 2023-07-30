@@ -1,6 +1,6 @@
 let
   #if issues read sudo journalctl -u nginx
-  userConfig = (import ../../userConfig.nix).userConfig;
+  userConfig = (import ../../userConfig.nix);
 in
 {
   networking.firewall.allowedTCPPorts = [ 80 443 ];
@@ -25,6 +25,19 @@ in
             "/blog".extraConfig = '' rewrite ^/(.*)$ https://blog.${userConfig.hostName} redirect; '';
             "/blog/".extraConfig = '' rewrite ^/blog/(.*)$ https://blog.${userConfig.hostName}/$1 redirect;'';
           };
+        };
+        "go.${userConfig.hostName}" = {
+          enableACME = true;
+          forceSSL = true;
+          root = "${userConfig.path}/redirects/";
+          #create the root path first then ln -s "${userConfig.path}/redirects/" /home/whereever needed
+          #inside /home/whereever do a chown -R $USER:users .
+          #ref: https://discourse.nixos.org/t/slowly-going-crazy-trying-to-get-nginx-to-not-return-a-403-error/11964/10
+          locations."/".extraConfig = ''
+            index index.html index.htm;
+            default_type text/html;
+            autoindex on;
+          '';
         };
         "docs.${userConfig.hostName}" = {
           enableACME = true;

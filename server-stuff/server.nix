@@ -1,6 +1,6 @@
 { pkgs, ... }:
 let
-  uc = (import ../userConfig.nix).userConfig;
+  uc = (import ../userConfig.nix);
   hm = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/release-${uc.stateVersion}.tar.gz";
 in
 {

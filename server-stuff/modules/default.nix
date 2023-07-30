@@ -1,5 +1,5 @@
 let
-  uc = (import ../../userConfig.nix).userConfig;
+  uc = (import ../../userConfig.nix);
 in
 {
   imports = [

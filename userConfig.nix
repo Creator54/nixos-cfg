@@ -1,54 +1,59 @@
 let
-  user = "creator54";
-  userDomain = "creator54.dev";
-in {
+  user="creator54";
+  userDomain="creator54.dev";
+  path = "/var/www/creator54.dev";
+  
+  src = {
+    local_site = "${path}/creator54.me";
+    local_blog = "${path}/blogger/_site";
+  };
+
   userConfig = {
     serverHostName = "phoenix";
     hostName = userDomain;
     userName = user;
     userPassword = "$1$DWB64kU7$qILCX4xO8DkGDAcvcqANc.";
     userEmail = "hi.creator54@gmail.com";
-    path = "/var/data";
+    path="${path}";
 
-    hostSrc = builtins.fetchTarball "https://github.com/creator54/creator54.me/tarball/main";
-    blogSrc = builtins.fetchTarball "https://github.com/creator54/blog.creator54.me/tarball/main" + "/_site/";
-
+    hostSrc = if builtins.pathExists src.local_site then src.local_site else builtins.fetchTarball "https://github.com/creator54/creator54.me/tarball/main";
+    blogSrc = if builtins.pathExists src.local_blog then src.local_blog else builtins.fetchTarball "https://github.com/creator54/blog.creator54.me/tarball/main/_site/";
     docker.enable = true;
     web = {
-      enable = true; #enables website,blog,docs,test
+      enable = true; # enables website, blog, docs, test
       codeServer = {
         enable = false;
         host = "code.${userDomain}";
-        user = "${user}";
+        user = user;
         port = 5000;
       };
       nextCloud = {
         enable = false;
-        adminUser = "${user}";
+        adminUser = user;
         host = "cloud.${userDomain}";
       };
       adguard = {
         enable = false;
         host = "ag.${userDomain}";
-        port = 3000; #set this port only in the webUI
+        port = 3000; # set this port only in the webUI
       };
       jellyfin = {
         enable = false;
-        user = "${user}";
+        user = user;
         host = "tv.${userDomain}";
-        port = 8096; #jellyfin runs on this port by default, no option to change currently
+        port = 8096; # jellyfin runs on this port by default, no option to change currently
       };
       plex = {
         enable = false;
-        user = "${user}";
+        user = user;
         host = "plex.${userDomain}";
         dataDir = "/var/lib/plex";
-        port = 32400; #plex runs on this port by default, no option to change currently
+        port = 32400; # plex runs on this port by default, no option to change currently
       };
       whoogle = {
         enable = true;
         host = "search.${userDomain}";
-        port = "8050"; #strings allowed here
+        port = "8050"; # strings allowed here
       };
     };
     sshKeys = [
@@ -56,4 +61,5 @@ in {
     ];
     stateVersion = "22.11";
   };
-}
+in
+userConfig

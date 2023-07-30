@@ -1,6 +1,6 @@
 { config, pkgs, lib, ... }:
 let
-  uc = (import ./userConfig.nix).userConfig;
+  uc = (import ./userConfig.nix);
 in
 {
   home-manager.users.${uc.userName} = { pkgs, ... }: {

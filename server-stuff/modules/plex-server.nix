@@ -1,6 +1,6 @@
 {config, pkgs, ...}:
 let
-  plex = (import ../../userConfig.nix).userConfig.web.plex;
+  plex = (import ../../userConfig.nix).web.plex;
 in
 {
   services = {

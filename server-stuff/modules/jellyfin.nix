@@ -1,6 +1,6 @@
 {config, pkgs, ...}:
 let
-  jellyfin = (import ../../userConfig.nix).userConfig.web.jellyfin;
+  jellyfin = (import ../../userConfig.nix).web.jellyfin;
 in
 {
   services = {
